@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 //Components
 import Button from "../../components/Button";
@@ -10,14 +10,16 @@ const StyledHeroBanner = styled.section`
   max-height: 750px;
   .hero-content {
     position: relative;
-    top: 165px;
+    top: ${(props) => props.scrollHero + "px"};
     width: 100%;
+    transition: 0.4s ease;
   }
   h1 {
     font-size: 65px;
   }
   h2 {
-    margin-top: 135px;
+    margin-top: ${(props) => props.scrollName + "px"};
+    transition: 0.4s ease;
     font-size: 60px;
     color: rgba(255, 251, 235, 0.8);
   }
@@ -27,7 +29,7 @@ const StyledHeroBanner = styled.section`
     margin-top: 5px;
     color: rgba(255, 251, 235, 0.5);
   }
-  button{
+  button {
     margin-top: 20px;
   }
 `;
@@ -39,16 +41,29 @@ const presentation =
   "web je suis actuellement à la recherche d’un stage " +
   "dans ce domaine";
 
-const Hero = () => {
+const Hero = (props) => {
+  const [heroTop, setHeroTop] = useState(165);
+  const [jobTop, setJobTop] = useState(135);
+
+  useEffect(() => {
+    if (props.scroll) {
+      setHeroTop(320);
+      setJobTop(10);
+    } else {
+      setHeroTop(165);
+      setJobTop(135);
+    }
+  }, [props.scroll]);
+
   return (
-    <StyledHeroBanner>
+    <StyledHeroBanner scrollHero={heroTop} scrollName={jobTop}>
       <div className="hero-content">
         <h1>{name}</h1>
         <h2>{job}</h2>
         <div className="presentation-container">
           <p>{presentation}</p>
         </div>
-          <Button label="Mon Cv"/>
+        <Button label="Mon Cv" />
       </div>
     </StyledHeroBanner>
   );

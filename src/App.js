@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -19,7 +18,6 @@ function App() {
     <AppContainer>
       <GlobalStyle />
       <Main>
-        <NavBar />
         <Home />
       </Main>
     </AppContainer>

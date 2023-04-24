@@ -5,7 +5,7 @@ import theme from "../styles/Theme";
 const StyledButton = styled.button` 
   position: relative;
   padding: 12px 35px;
-  border: 3px solid ;
+  border: 4px solid ;
   background: none;
   color: ${theme.colors.secondary};
   font-size: 17px;
