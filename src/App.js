@@ -8,7 +8,8 @@ const AppContainer = styled.div`
 `;
 
 const Main = styled.main`
-  max-width: 1200px;
+  width: 80%;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
