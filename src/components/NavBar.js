@@ -32,7 +32,7 @@ const StyledNavBar = styled.nav`
   }
   li {
     span {
-      color: ${theme.colors.secondary};
+      color: ${theme.colors.third};
     }
     font-size: 18px;
     cursor: pointer;
