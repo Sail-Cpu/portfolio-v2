@@ -1,20 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "../styles/Theme";
 
 const StyledButton = styled.button` 
   position: relative;
   padding: 12px 35px;
-  border: 3px solid #fffbeb;
+  border: 3px solid ;
   background: none;
-  color: #fffbeb;
+  color: ${theme.colors.secondary};
   font-size: 17px;
   cursor: pointer;
   overflow: hidden;
+  font-family: 'Gugi', serif;
   span {
     z-index: 20;
   }
   &:after {
-    background: #fffbeb;
+    background: ${theme.colors.secondary};
     content: "";
     height: 155px;
     left: -75px;

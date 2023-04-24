@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "../styles/Theme";
 //Image
-import Logo from "../assets/img/logo.png";
+import Logo from "../assets/img/logo.png"
 
 const StyledNavBarContainer = styled.div`
   position: fixed;
@@ -22,7 +23,7 @@ const StyledNavBar = styled.nav`
   padding: 0 45px;
   width: 100%;
   height: 100%;
-  background-color: #263159;
+  background-color: ${theme.colors.primary};
   box-shadow: 0 0 26px 18px rgba(0, 0, 0, 0.2);
   ul {
     width: 35%;
@@ -31,7 +32,7 @@ const StyledNavBar = styled.nav`
   }
   li {
     span {
-      color: #00ffd1;
+      color: ${theme.colors.secondary};
     }
     font-size: 18px;
     cursor: pointer;

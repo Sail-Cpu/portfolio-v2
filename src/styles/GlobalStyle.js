@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import Gugi from '../font/Gugi-Regular.ttf';
+import theme from "./Theme";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -13,11 +14,11 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    background-color: #263159;
+    background-color: ${theme.colors.primary};
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    color: #FFFBEB;
+    color: ${theme.colors.secondary};
     font-family: 'Gugi', serif;
   }
   nav{
