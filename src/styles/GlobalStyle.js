@@ -28,6 +28,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  h1{
+    margin: 0;
+  }
+  h2{
+    margin: 0;
+  }
+  p{
+    margin: 0;
+  }
 `;
 
 export default GlobalStyle;

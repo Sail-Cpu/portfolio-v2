@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 /* Components */
-import NavBar from "../components/NavBar";
+import Hero from "./section/Hero";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ const HomeContainer = styled.div`
 const Home = () => {
   return (
     <HomeContainer>
-      <NavBar />
+      <Hero />
     </HomeContainer>
   );
 };

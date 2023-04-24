@@ -4,12 +4,14 @@ import styled from "styled-components";
 import Logo from "../assets/img/logo.png";
 
 const StyledNavBarContainer = styled.div`
-  position: relative;
-  top: 230px;
+  position: fixed;
+  top: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  padding: inherit;
+  width: 70%;
+  max-width: 1200px;
   height: 130px;
 `;
 
