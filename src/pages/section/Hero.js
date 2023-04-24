@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+//Components
+import Button from "../../components/Button";
 
 const StyledHeroBanner = styled.section`
   width: 100%;
@@ -19,18 +21,21 @@ const StyledHeroBanner = styled.section`
     font-size: 60px;
     color: rgba(255, 251, 235, 0.8);
   }
-  .presentation-container{
+  .presentation-container {
     width: 60%;
     font-size: 18px;
     margin-top: 5px;
     color: rgba(255, 251, 235, 0.5);
+  }
+  button{
+    margin-top: 20px;
   }
 `;
 
 const name = "Sofiane Lasoa";
 const job = "Je suis Developpeur Web";
 const presentation =
-  "Véritablement passionné par le développement " +
+  "Véritablement passionne par le développement " +
   "web je suis actuellement à la recherche d’un stage " +
   "dans ce domaine";
 
@@ -40,9 +45,10 @@ const Hero = () => {
       <div className="hero-content">
         <h1>{name}</h1>
         <h2>{job}</h2>
-        <div className='presentation-container'>
+        <div className="presentation-container">
           <p>{presentation}</p>
         </div>
+          <Button label="Mon Cv"/>
       </div>
     </StyledHeroBanner>
   );

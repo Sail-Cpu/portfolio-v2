@@ -6,6 +6,7 @@ import Hero from "./section/Hero";
 const HomeContainer = styled.div`
   width: 100%;
 `;
+
 const Home = () => {
   return (
     <HomeContainer>
