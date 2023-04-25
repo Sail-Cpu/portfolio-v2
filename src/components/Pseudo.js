@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
 
@@ -13,11 +13,7 @@ const StyledPseudo = styled.div`
 const pseudo = "SAIL";
 
 const Pseudo = () => {
-    return(
-        <StyledPseudo>
-            {pseudo}
-        </StyledPseudo>
-    )
-}
+  return <StyledPseudo>{pseudo}</StyledPseudo>;
+};
 
 export default Pseudo;

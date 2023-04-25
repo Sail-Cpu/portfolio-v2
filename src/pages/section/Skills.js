@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 import { TechnoSkills, ToolsSkills } from "../../content/Skills";
+import SectionName from "../../components/SectionName";
 
 const StyledSkillsContainer = styled.div`
   margin-top: 150px;
@@ -41,6 +42,30 @@ const StyledSkillsContainer = styled.div`
       }
     }
   }
+  .skills-top {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    .skills-bar-horizontal {
+      width: 2px;
+      height: 60px;
+      background-color: ${theme.colors.fourth};
+    }
+    .skills-bar-vertical {
+      display: flex;
+      .skills-bar-vertical-1 {
+        width: ${(props => props.nbWidth + "px")};
+        height: 2px;
+        background-color: ${theme.colors.fourth};
+      }
+      .skills-bar-vertical-2 {
+        margin-left: 15px;
+        width: ${(props => props.nameWidth + "px")};
+        height: 2px;
+        background-color: ${theme.colors.fourth};
+      }
+    }
+  }
 `;
 
 const StyledSkill = styled.div`
@@ -62,8 +87,24 @@ const StyledSkill = styled.div`
 `;
 
 const Skills = () => {
+  const [nbWidth, setNbWidth] = useState(0);
+  const [nameWidth, setNameWidth] = useState(0);
+
   return (
-    <StyledSkillsContainer>
+    <StyledSkillsContainer nbWidth={nbWidth} nameWidth={nameWidth}>
+      <div className="skills-top">
+        <SectionName
+          nb="02"
+          name="Skills"
+          setNbWidth={setNbWidth}
+          setNameWidth={setNameWidth}
+        />
+        <div className="skills-bar-vertical">
+          <div className="skills-bar-vertical-1"></div>
+          <div className="skills-bar-vertical-2"></div>
+        </div>
+        <div className="skills-bar-horizontal"></div>
+      </div>
       <div className="slider-skills">
         {[...Array(3)].map((_, idx) => {
           return (
