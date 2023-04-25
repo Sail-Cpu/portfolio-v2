@@ -6,6 +6,7 @@ import Me from "./section/Me";
 import NavBar from "../components/NavBar";
 import Skills from "./section/Skills";
 import SocialMedia from "../components/SocialMedia";
+import Pseudo from "../components/Pseudo";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -40,6 +41,7 @@ const Home = () => {
     <HomeContainer>
       <NavBar scroll={scroll} toTop={toTop} />
       <SocialMedia/>
+      <Pseudo/>
       <Hero scroll={scroll} />
       <Me />
       <Skills />
