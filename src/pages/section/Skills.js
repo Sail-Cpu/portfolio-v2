@@ -4,7 +4,7 @@ import theme from "../../styles/Theme";
 import { TechnoSkills, ToolsSkills } from "../../content/Skills";
 import SectionName from "../../components/SectionName";
 
-const StyledSkillsContainer = styled.div`
+const StyledSkillsContainer = styled.section`
   margin-top: 150px;
   width: 100%;
   position: absolute;

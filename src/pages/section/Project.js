@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SectionName from "../../components/SectionName";
 import theme from "../../styles/Theme";
 //Project
 import AllProject from "../../content/Project";
+//Icons
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-const StyledProject = styled.div`
+const StyledProject = styled.section`
   position: relative;
   top: 650px;
   width: 100%;
   .slider-container {
-    width: 91%;
-    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    padding-left: 50px;
   }
 `;
 const StyledProjectTop = styled.div`
@@ -57,13 +60,85 @@ const StyledSlide = styled.div`
     props.active ? "4px solid" + theme.colors.third : ""};
   box-shadow: ${(props) =>
     props.active ? "0px 6px 15px rgba(0, 0, 0, 0.25)" : ""};
+  cursor: pointer;
+`;
+const StyledProjectContent = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: inherit;
+  padding: 50px;
+  h2 {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    color: ${theme.colors.third};
+  }
+  .project-image {
+    width: 60%;
+    height: 100%;
+    background-image: url("${(props) => props.active.image}");
+    background-size: cover;
+    background-position: center;
+  }
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 40%;
+    height: 100%;
+    .project-title{
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      width: 100%;
+      height: 50px;
+      h1{
+        font-size: 30px;
+      }
+    }
+    .project-description{
+      width: 140%;
+      padding: 20px;
+      background-color: ${theme.colors.primary};
+      box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.25);
+      color: ${theme.colors.fourth};
+    }
+    .techno{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      padding: 0 20px;
+      span{
+        font-size: 15px;
+        margin-right: 10px;
+        color: ${theme.colors.fourth};
+      }
+    }
+    .git {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      padding: 0 20px;
+      font-size: 30px;
+    }
+  }
 `;
 
 const Project = () => {
-  const [activeProject, setActiveProject] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [activeProject, setActiveProject] = useState({});
+
+  useEffect(() => {
+    setActiveProject(AllProject[activeIdx]);
+  }, [activeIdx]);
 
   return (
     <StyledProject>
+
       <StyledProjectTop>
         <SectionName nb="03" name="Mes Projets" />
         <div className="project-bar-left"></div>
@@ -75,14 +150,37 @@ const Project = () => {
           {AllProject.map((project, idx) => {
             return (
               <StyledSlide
-                onClick={() => setActiveProject(idx)}
-                active={activeProject === idx}
+                key={idx}
+                onClick={() => setActiveIdx(idx)}
+                active={activeIdx === idx}
               >
                 {project.name}
               </StyledSlide>
             );
           })}
         </StyledSlider>
+        <StyledProjectContent active={activeProject}>
+          <h2>{activeProject.date}</h2>
+          <div className="project-image"></div>
+          <div className="project-content">
+            <div className="project-title">
+              <h1>{activeProject.name}</h1>
+            </div>
+            <div className="project-description">
+              {activeProject.description}
+            </div>
+            <div className="techno">
+              {activeProject.techno &&
+                activeProject.techno.map((project, idx) => {
+                  return <span key={idx}>{project}</span>
+                })
+              }
+            </div>
+            <div className="git">
+              <GitHubIcon />
+            </div>
+          </div>
+        </StyledProjectContent>
       </div>
     </StyledProject>
   );

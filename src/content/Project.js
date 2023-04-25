@@ -1,3 +1,10 @@
+//Image
+import Alcorn from "../assets/img/alcorn.png";
+import Out from "../assets/img/out.png";
+import Dragon from "../assets/img/dragonio.png";
+import Portfolio from "../assets/img/portfolio.png";
+import Sera from "../assets/img/sera.png";
+
 const Project = [
   {
     name: "Alcorn ' List",
@@ -5,6 +12,13 @@ const Project = [
       "Un catalogue de jeux vidéo présentant \n" +
       "plus de 500 000 jeux, triés dans différentes \n" +
       "catégories.",
+    date: 2022,
+    image: Alcorn,
+    techno: ["React", "JavaScript", "Html", "Scss"],
+    git: {
+      app: "github",
+      link: "",
+    },
   },
   {
     name: "OUT.",
@@ -12,6 +26,10 @@ const Project = [
       "Une application qui te donne des conseils sur les vêtements " +
       "à porter en fonction de la météo, tu choisis la localisation et " +
       "elle te donne une liste de pantalons, de vestes, etc. que tu peux porter.",
+    date: 2022,
+    image: Out,
+    techno: ["React", "JavaScript", "Html", "Scss"],
+    git: "",
   },
   {
     name: "Dragon.io",
@@ -20,6 +38,10 @@ const Project = [
       "met en scène les personnages emblématiques de la série, tels que Goku, Vegeta " +
       "ou Freezer, et vous permet d'absorber des boules de ki pour devenir plus fort et " +
       "combattre d'autres joueurs en ligne.",
+    date: 2023,
+    image: Dragon,
+    techno: ["TypeScript", "Html", "Css", "Babel"],
+    git: "",
   },
   {
     name: "Sera",
@@ -28,12 +50,20 @@ const Project = [
       "Que vous soyez amateur de manga ou développeur d'application, SERA est facile à " +
       "utiliser et vous permettra d'intégrer facilement des informations sur les mangas " +
       "dans vos projets.",
+    date: 2023,
+    image: Sera,
+    techno: ["Node", "Express", "JavaScript"],
+    git: "",
   },
   {
     name: "Portfolio v1",
     description:
-        "Mon Cv numérique qui vous parle de moi, de mes compétences, " +
-        "de mes projets et qui vous donnera je l'espère l'envie de travailler avec moi.",
+      "Mon Cv numérique qui vous parle de moi, de mes compétences, " +
+      "de mes projets et qui vous donnera je l'espère l'envie de travailler avec moi.",
+    date: 2023,
+    image: Portfolio,
+    techno: ["JavaScript", "Html", "Css"],
+    git: "",
   },
 ];
 

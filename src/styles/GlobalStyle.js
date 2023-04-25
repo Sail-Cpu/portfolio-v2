@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Gugi';
     src: url('${Gugi}') format('truetype');
   }
+  *{
+    box-sizing: border-box;
+  }
   html {
     box-sizing: border-box;
     width: 100%;
