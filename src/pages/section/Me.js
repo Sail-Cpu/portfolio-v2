@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
+import Skills from "../../content/Skills";
 //Components
 import SectionName from "../../components/SectionName";
 import Picture from "../../assets/img/picture.png";
@@ -59,6 +60,23 @@ const StyledText = styled.div`
   }
 `;
 
+const StyledSkill = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: fit-content;
+  background-color: ${theme.colors.primary};
+  box-shadow: 0 0 26px 18px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  span {
+    margin-right: 15px;
+  }
+  img {
+    height: 40px;
+  }
+`;
+
 const paragraph1 =
   "Bonjour, je m'appelle Sofiane, j'ai 20 ans et je vis dans les " +
   "environs de Lille. Actuellement, je suis en 2ème année de " +
@@ -85,6 +103,14 @@ const Me = () => {
         <p>{paragraph1}</p>
         <p>{paragraph2}</p>
       </StyledText>
+      {Skills.map((skill, idx) => {
+        return (
+          <StyledSkill key={idx}>
+            <span>{skill.name.toUpperCase()}</span>
+            <img src={skill.icon}  alt={skill.name + " icon"}/>
+          </StyledSkill>
+        );
+      })}
     </StyledMe>
   );
 };
