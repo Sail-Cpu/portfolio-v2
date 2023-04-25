@@ -55,7 +55,7 @@ const StyledLogo = styled.div`
 `;
 
 const li1 = "ME CONNAITRE";
-const li2 = "VALEURS";
+const li2 = "SKILLS";
 const li3 = "PROJETS";
 const li4 = "ME CONTACTER";
 

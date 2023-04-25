@@ -54,13 +54,13 @@ const StyledSkillsContainer = styled.div`
     .skills-bar-vertical {
       display: flex;
       .skills-bar-vertical-1 {
-        width: ${(props => props.nbWidth + "px")};
+        width: ${(props) => props.nbWidth + "px"};
         height: 2px;
         background-color: ${theme.colors.fourth};
       }
       .skills-bar-vertical-2 {
         margin-left: 15px;
-        width: ${(props => props.nameWidth + "px")};
+        width: ${(props) => props.nameWidth + "px"};
         height: 2px;
         background-color: ${theme.colors.fourth};
       }

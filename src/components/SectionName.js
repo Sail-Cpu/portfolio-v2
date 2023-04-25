@@ -19,7 +19,7 @@ const SectionName = (props) => {
       props.setNbWidth(nbRef.current.offsetWidth);
       props.setNameWidth(nameRef.current.offsetWidth);
     }
-  }, [props.setNbWidth, props.setNameWidth]);
+  }, [props]);
 
   return (
     <StyledSectionName>
