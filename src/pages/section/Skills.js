@@ -1,27 +1,43 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
-import { TechnoSkills } from "../../content/Skills";
+import { TechnoSkills, ToolsSkills } from "../../content/Skills";
 
 const StyledSkillsContainer = styled.div`
-  padding: 30px 0;
   margin-top: 150px;
-  display: flex;
   width: 100%;
   position: absolute;
   left: 0;
   right: 0;
   overflow: hidden;
-  .slide-skill {
+  .slider-skills {
+    margin: 30px 0;
+    width: 100%;
+    display: flex;
+  }
+  .slide-skill-to-left {
     display: flex;
     white-space: nowrap;
-    animation: defilement 15s linear infinite;
-    @keyframes defilement {
+    animation: rightToLeft 25s linear infinite;
+    @keyframes rightToLeft {
       0% {
         transform: translateX(0%);
       }
       100% {
         transform: translateX(-100%);
+      }
+    }
+  }
+  .slide-skill-to-right {
+    display: flex;
+    white-space: nowrap;
+    animation: LeftToRight 25s linear infinite;
+    @keyframes LeftToRight {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0%);
       }
     }
   }
@@ -32,7 +48,7 @@ const StyledSkill = styled.div`
   margin-right: 40px;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   width: fit-content;
   background-color: ${theme.colors.primary};
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
@@ -48,20 +64,38 @@ const StyledSkill = styled.div`
 const Skills = () => {
   return (
     <StyledSkillsContainer>
-      {[...Array(3)].map((_, idx) => {
-        return (
-          <div key={idx} className="slide-skill">
-            {TechnoSkills.map((skill, idx) => {
-              return (
-                <StyledSkill key={idx}>
-                  <span>{skill.name.toUpperCase()}</span>
-                  <img src={skill.icon} alt={skill.name + " icon"} />
-                </StyledSkill>
-              );
-            })}
-          </div>
-        );
-      })}
+      <div className="slider-skills">
+        {[...Array(3)].map((_, idx) => {
+          return (
+            <div key={idx} className="slide-skill-to-left">
+              {TechnoSkills.map((skill, idx) => {
+                return (
+                  <StyledSkill key={idx}>
+                    <span>{skill.name.toUpperCase()}</span>
+                    <img src={skill.icon} alt={skill.name + " icon"} />
+                  </StyledSkill>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+      <div className="slider-skills">
+        {[...Array(3)].map((_, idx) => {
+          return (
+            <div key={idx} className="slide-skill-to-right">
+              {ToolsSkills.map((skill, idx) => {
+                return (
+                  <StyledSkill key={idx}>
+                    <span>{skill.name.toUpperCase()}</span>
+                    <img src={skill.icon} alt={skill.name + " icon"} />
+                  </StyledSkill>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </StyledSkillsContainer>
   );
 };
