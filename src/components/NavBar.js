@@ -27,7 +27,7 @@ const StyledNavBar = styled.nav`
   height: 100%;
   background-color: ${theme.colors.primary};
   box-shadow: 0 0 26px 18px rgba(0, 0, 0, 0.2);
-  opacity: ${(props) => (props.sa ? "1" : "0.4")};
+  opacity: ${(props) => (props.sa ? "1" : "0.35")};
   transition: 0.4s ease;
   ul {
     width: 35%;
