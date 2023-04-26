@@ -24,6 +24,12 @@ const StyledSocialMedia = styled.div`
     cursor: pointer;
   }
   color: ${theme.colors.secondary};
+  @media screen and (max-width: 1050px){
+    left: 35px;
+  }
+  @media screen and (max-width: 800px){
+    left: 20px;
+  }
 `;
 
 const SocialMedia = () => {

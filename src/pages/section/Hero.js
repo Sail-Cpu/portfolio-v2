@@ -32,6 +32,29 @@ const StyledHeroBanner = styled.section`
   button {
     margin-top: 20px;
   }
+  @media screen and (max-width: 1050px) {
+    .hero-content {
+      top: ${(props) => props.scrollHero + 10 + "px"};
+    }
+    .presentation-container{
+      width: 100%;
+    }
+    h1 {
+      font-size: 55px;
+    }
+    h2 {
+      margin-top: ${(props) => props.scrollName + 10 + "px"};
+      font-size: 50px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .hero-content {
+      top: 250px;
+    }
+    h2{
+      margin-top: 0;
+    }
+  }
 `;
 
 const name = "Sofiane Lasoa";

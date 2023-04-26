@@ -14,6 +14,9 @@ const Main = styled.main`
   @media screen and (max-width: 1050px){
     width: 80%;
   }
+  @media screen and (max-width: 800px){
+    width: 85%;
+  }
 `;
 
 function App() {
