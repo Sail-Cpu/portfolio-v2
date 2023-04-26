@@ -4,11 +4,11 @@ import theme from "../styles/Theme";
 
 const StyledButton = styled.button` 
   position: relative;
-  padding: ${props => props.icon ? "5px 25px" : "12px 35px"};
+  padding: ${(props) => (props.icon ? "5px 25px" : "12px 35px")};
   border: 4px solid ;
   background: none;
   color: ${theme.colors.secondary};
-  font-size: ${props => props.icon ? "" : "17px"};
+  font-size: ${(props) => (props.icon ? "" : "17px")};
   cursor: pointer;
   overflow: hidden;
   font-family: 'Gugi', serif;

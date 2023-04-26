@@ -88,30 +88,30 @@ const StyledProjectContent = styled.div`
     align-items: flex-end;
     width: 40%;
     height: 100%;
-    .project-title{
+    .project-title {
       display: flex;
       align-items: center;
       padding: 0 20px;
       width: 100%;
       height: 50px;
-      h1{
+      h1 {
         font-size: 30px;
       }
     }
-    .project-description{
+    .project-description {
       width: 140%;
       padding: 20px;
       background-color: ${theme.colors.primary};
       box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.25);
       color: ${theme.colors.fourth};
     }
-    .techno{
+    .techno {
       display: flex;
       align-items: center;
       width: 100%;
       height: 10%;
       padding: 0 20px;
-      span{
+      span {
         font-size: 15px;
         margin-right: 10px;
         color: ${theme.colors.fourth};
@@ -171,9 +171,8 @@ const Project = (props) => {
             <div className="techno">
               {activeProject.techno &&
                 activeProject.techno.map((project, idx) => {
-                  return <span key={idx}>{project}</span>
-                })
-              }
+                  return <span key={idx}>{project}</span>;
+                })}
             </div>
             <div className="git">
               <GitHubIcon />

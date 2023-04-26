@@ -63,7 +63,13 @@ const Hero = (props) => {
         <div className="presentation-container">
           <p>{presentation}</p>
         </div>
-        <Button label="Mon Cv" />
+        <a
+          target="_blank"
+          href="https://drive.google.com/file/d/19gMygkLdiLeLrB3wIQKvZTtZHAnHJZfq/view"
+          rel="noreferrer"
+        >
+          <Button label="Mon Cv" />
+        </a>
       </div>
     </StyledHeroBanner>
   );
