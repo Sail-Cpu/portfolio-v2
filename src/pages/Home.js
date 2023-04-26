@@ -10,6 +10,7 @@ import Pseudo from "../components/Pseudo";
 import Project from "./section/Project";
 import Contact from "./section/Contact";
 import NavIcon from "../components/NavIcon";
+import MobileNav from "../components/MobileNav";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -48,6 +49,7 @@ const Home = () => {
   return (
     <HomeContainer>
       <NavIcon />
+      <MobileNav />
       <NavBar
         scroll={scroll}
         toTop={toTop}
