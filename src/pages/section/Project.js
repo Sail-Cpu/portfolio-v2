@@ -128,7 +128,7 @@ const StyledProjectContent = styled.div`
   }
 `;
 
-const Project = () => {
+const Project = (props) => {
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeProject, setActiveProject] = useState({});
 
@@ -137,8 +137,7 @@ const Project = () => {
   }, [activeIdx]);
 
   return (
-    <StyledProject>
-
+    <StyledProject ref={props.position}>
       <StyledProjectTop>
         <SectionName nb="03" name="Mes Projets" />
         <div className="project-bar-left"></div>

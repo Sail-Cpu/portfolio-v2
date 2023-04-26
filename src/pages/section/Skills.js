@@ -86,12 +86,16 @@ const StyledSkill = styled.div`
   }
 `;
 
-const Skills = () => {
+const Skills = (props) => {
   const [nbWidth, setNbWidth] = useState(0);
   const [nameWidth, setNameWidth] = useState(0);
 
   return (
-    <StyledSkillsContainer nbWidth={nbWidth} nameWidth={nameWidth}>
+    <StyledSkillsContainer
+      ref={props.position}
+      nbWidth={nbWidth}
+      nameWidth={nameWidth}
+    >
       <div className="skills-top">
         <SectionName
           nb="02"

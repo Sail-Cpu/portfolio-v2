@@ -70,9 +70,9 @@ const paragraph2 =
   "avec des technologies récentes. Grâce à ma bonne capacité" +
   "d'adaptation, je peux facilement intégrer une nouvelle équipe.";
 
-const Me = () => {
+const Me = (props) => {
   return (
-    <StyledMe>
+    <StyledMe ref={props.position}>
       <SectionName nb="01" name="Moi" />
       <StyledMeBar width="55" left />
       <StyledPictureContainer>

@@ -14,23 +14,23 @@ const StyledContact = styled.section`
   align-items: center;
   width: 100%;
   .bar{
-    margin: 20px 0;
+    margin: 15px 0;
     width: 2px;
-    height: 50px;
+    height: 35px;
     background-color: ${theme.colors.fourth};
   }
   .text{
     text-align: center;
     width: 45%;
     color: ${theme.colors.fourth};
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 `;
 
 
-const Contact = () => {
+const Contact = (props) => {
     return(
-        <StyledContact>
+        <StyledContact ref={props.position}>
             <SectionName nb="04" name="Me Contacter"/>
             <div className="bar"></div>
             <div className="text">

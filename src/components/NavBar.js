@@ -27,7 +27,7 @@ const StyledNavBar = styled.nav`
   height: 100%;
   background-color: ${theme.colors.primary};
   box-shadow: 0 0 26px 18px rgba(0, 0, 0, 0.2);
-  opacity: ${(props) => (props.sa ? "1" : "0.35")};
+  opacity: ${(props) => (props.toTop ? "1" : "0.35")};
   transition: 0.4s ease;
   ul {
     width: 35%;
@@ -62,6 +62,10 @@ const li4 = "ME CONTACTER";
 const NavBar = (props) => {
   const [navTop, setNavTop] = useState(250);
 
+  function scrollToRef(ref) {
+    window.scrollTo({ top: ref.current.offsetTop - 180, behavior: "smooth" });
+  }
+
   useEffect(() => {
     if (props.scroll) {
       setNavTop(30);
@@ -72,12 +76,12 @@ const NavBar = (props) => {
 
   return (
     <StyledNavBarContainer scroll={navTop}>
-      <StyledNavBar sa={props.toTop}>
+      <StyledNavBar toTop={props.toTop}>
         <ul>
-          <li>
+          <li onClick={() => scrollToRef(props.MeRef)}>
             <span>01.</span> {li1}
           </li>
-          <li>
+          <li onClick={() => scrollToRef(props.SkillsRef)}>
             <span>02.</span> {li2}
           </li>
         </ul>
@@ -85,10 +89,10 @@ const NavBar = (props) => {
           <img src={Logo} alt="Logo" />
         </StyledLogo>
         <ul>
-          <li>
+          <li onClick={() => scrollToRef(props.ProjectRef)}>
             <span>03.</span> {li3}
           </li>
-          <li>
+          <li onClick={() => scrollToRef(props.ContactRef)}>
             <span>04.</span> {li4}
           </li>
         </ul>

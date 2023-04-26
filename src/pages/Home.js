@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 /* Secton */
 import Hero from "./section/Hero";
@@ -39,16 +39,28 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [y]);
 
+  const MeRef = useRef(null);
+  const SkillsRef = useRef(null);
+  const ProjectRef = useRef(null);
+  const ContactRef = useRef(null);
+
   return (
     <HomeContainer>
-      <NavBar scroll={scroll} toTop={toTop} />
+      <NavBar
+        scroll={scroll}
+        toTop={toTop}
+        MeRef={MeRef}
+        SkillsRef={SkillsRef}
+        ProjectRef={ProjectRef}
+        ContactRef={ContactRef}
+      />
       <SocialMedia />
       <Pseudo />
       <Hero scroll={scroll} />
-      <Me />
-      <Skills />
-      <Project />
-      <Contact />
+      <Me position={MeRef} />
+      <Skills position={SkillsRef} />
+      <Project position={ProjectRef} />
+      <Contact position={ContactRef} />
     </HomeContainer>
   );
 };
