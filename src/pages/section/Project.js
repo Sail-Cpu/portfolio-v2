@@ -83,7 +83,7 @@ const StyledProjectContent = styled.div`
     background-size: cover;
     background-position: center;
     .project-image-content {
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: space-between;
       background-color: rgba(0, 0, 0, 0.48);
@@ -176,6 +176,9 @@ const StyledProjectContent = styled.div`
   @media screen and (max-width: 950px) {
     .project-image {
       width: 100%;
+      .project-image-content {
+        display: flex;
+      }
     }
 
     .project-content {
