@@ -46,10 +46,18 @@ const Home = () => {
   const ProjectRef = useRef(null);
   const ContactRef = useRef(null);
 
+  const [openMobileNav, setOpenMobileNav] = useState(false);
+
   return (
     <HomeContainer>
-      <NavIcon />
-      <MobileNav />
+      <NavIcon
+        setOpenMobileNav={setOpenMobileNav}
+        openMobileNav={openMobileNav}
+      />
+      <MobileNav
+        setOpenMobileNav={setOpenMobileNav}
+        openMobileNav={openMobileNav}
+      />
       <NavBar
         scroll={scroll}
         toTop={toTop}

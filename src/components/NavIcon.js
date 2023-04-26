@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import theme from "../styles/Theme";
 
@@ -11,6 +11,9 @@ const StyledNavIcon = styled.button`
   cursor: pointer;
   display: flex;
   padding: 0;
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
   .line {
     fill: none;
     stroke: ${theme.colors.fourth};
@@ -53,14 +56,13 @@ const StyledNavIcon = styled.button`
     `}
 `;
 
-const NavIcon = () => {
-  const [toggle, setToggle] = useState(false);
+const NavIcon = (props) => {
   return (
     <StyledNavIcon
-      className={toggle ? "opened" : ""}
+      className={props.openMobileNav ? "opened" : ""}
       aria-label="Main Menu"
-      onClick={() => setToggle(!toggle)}
-      opened={toggle}
+      onClick={() => props.setOpenMobileNav(!props.openMobileNav)}
+      opened={props.openMobileNav}
     >
       <svg width="60" height="60" viewBox="0 0 100 100">
         <path
