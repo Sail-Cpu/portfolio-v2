@@ -68,19 +68,54 @@ const StyledProjectContent = styled.div`
   align-items: center;
   width: inherit;
   padding: 50px;
+
   h2 {
     position: absolute;
     top: -80px;
     right: 0;
     color: ${theme.colors.third};
   }
+
   .project-image {
     width: 60%;
     height: 100%;
     background-image: url("${(props) => props.active.image}");
     background-size: cover;
     background-position: center;
+    .project-image-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: rgba(0, 0, 0, 0.48);
+      padding: 20px 20px;
+      width: 100%;
+      height: 100%;
+    }
+    .project-image-title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      font-size: 35px;
+    }
+    .project-image-description {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .project-image-techno {
+      width: 100%;
+      span {
+        margin-right: 15px;
+      }
+      margin-top: 10px;
+    }
+    .project-image-git {
+      margin-top: 10px;
+    }
   }
+
   .project-content {
     display: flex;
     flex-direction: column;
@@ -88,14 +123,16 @@ const StyledProjectContent = styled.div`
     align-items: flex-end;
     width: 40%;
     height: 100%;
+
     .project-title {
       display: flex;
       align-items: center;
       padding: 0 20px;
       width: 100%;
       height: 50px;
+
       h1 {
-        font-size: 30px;
+        font-size: 2vw;
       }
     }
     .project-description {
@@ -111,12 +148,22 @@ const StyledProjectContent = styled.div`
       width: 100%;
       height: 10%;
       padding: 0 20px;
+
       span {
         font-size: 15px;
         margin-right: 10px;
         color: ${theme.colors.fourth};
       }
+      overflow-x: auto;
+      white-space: nowrap;
+      ::-webkit-scrollbar {
+        height: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: ${theme.colors.fourth};
+      }
     }
+
     .git {
       display: flex;
       align-items: center;
@@ -124,6 +171,15 @@ const StyledProjectContent = styled.div`
       height: 10%;
       padding: 0 20px;
       font-size: 30px;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    .project-image {
+      width: 100%;
+    }
+
+    .project-content {
+      display: none;
     }
   }
 `;
@@ -160,7 +216,23 @@ const Project = (props) => {
         </StyledSlider>
         <StyledProjectContent active={activeProject}>
           <h2>{activeProject.date}</h2>
-          <div className="project-image"></div>
+          <div className="project-image">
+            <div className="project-image-content">
+              <div className="project-image-title">{activeProject.name}</div>
+              <div className="project-image-description">
+                {activeProject.description}
+              </div>
+              <div className="project-image-techno">
+                {activeProject.techno &&
+                  activeProject.techno.map((project, idx) => {
+                    return <span key={idx}>{project}</span>;
+                  })}
+              </div>
+              <div className="project-image-git">
+                <GitHubIcon />
+              </div>
+            </div>
+          </div>
           <div className="project-content">
             <div className="project-title">
               <h1>{activeProject.name}</h1>
