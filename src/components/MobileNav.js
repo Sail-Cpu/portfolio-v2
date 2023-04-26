@@ -33,7 +33,7 @@ const StyledMobileNav = styled.nav`
     font-size: 30px;
     color: ${theme.colors.fourth};
   }
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     display: none;
   }
 `;
@@ -50,6 +50,7 @@ const StyledNavLink = styled.li`
     font-size: 22px;
     margin-top: 10px;
   }
+  cursor: pointer;
 `;
 
 const MobileNav = (props) => {
@@ -58,22 +59,26 @@ const MobileNav = (props) => {
   const link3 = "Mes Projets";
   const link4 = "Me Contacter";
 
+  function scrollToRef(ref) {
+    window.scrollTo({ top: ref.current.offsetTop - 130, behavior: "smooth" });
+  }
+
   return (
     <StyledMobileNav active={props.openMobileNav}>
       <ul className="link-list">
-        <StyledNavLink>
+        <StyledNavLink onClick={() => scrollToRef(props.MeRef)}>
           <h2>01.</h2>
           <h1>{link1.toUpperCase()}</h1>
         </StyledNavLink>
-        <StyledNavLink>
+        <StyledNavLink onClick={() => scrollToRef(props.SkillsRef)}>
           <h2>02.</h2>
           <h1>{link2.toUpperCase()}</h1>
         </StyledNavLink>
-        <StyledNavLink>
+        <StyledNavLink onClick={() => scrollToRef(props.ProjectRef)}>
           <h2>03.</h2>
           <h1>{link3.toUpperCase()}</h1>
         </StyledNavLink>
-        <StyledNavLink>
+        <StyledNavLink onClick={() => scrollToRef(props.ContactRef)}>
           <h2>04.</h2>
           <h1>{link4.toUpperCase()}</h1>
         </StyledNavLink>

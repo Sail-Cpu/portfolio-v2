@@ -57,6 +57,10 @@ const Home = () => {
       <MobileNav
         setOpenMobileNav={setOpenMobileNav}
         openMobileNav={openMobileNav}
+        MeRef={MeRef}
+        SkillsRef={SkillsRef}
+        ProjectRef={ProjectRef}
+        ContactRef={ContactRef}
       />
       <NavBar
         scroll={scroll}
