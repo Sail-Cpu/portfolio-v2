@@ -14,9 +14,9 @@ const StyledContact = styled.section`
   align-items: center;
   width: 100%;
   .bar{
-    margin: 15px 0;
+    margin: 10px 0;
     width: 2px;
-    height: 35px;
+    height: 30px;
     background-color: ${theme.colors.fourth};
   }
   .text{

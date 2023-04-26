@@ -9,6 +9,7 @@ import SocialMedia from "../components/SocialMedia";
 import Pseudo from "../components/Pseudo";
 import Project from "./section/Project";
 import Contact from "./section/Contact";
+import NavIcon from "../components/NavIcon";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -46,6 +47,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
+      <NavIcon />
       <NavBar
         scroll={scroll}
         toTop={toTop}
