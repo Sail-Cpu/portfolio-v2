@@ -16,6 +16,14 @@ const StyledNavBarContainer = styled.div`
   width: 70%;
   max-width: 1200px;
   height: 130px;
+  font-size: 18px;
+  @media screen and (max-width: 1050px) {
+    width: 80%;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const StyledNavBar = styled.nav`
@@ -38,8 +46,13 @@ const StyledNavBar = styled.nav`
     span {
       color: ${theme.colors.third};
     }
-    font-size: 18px;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1290px) {
+    padding: 0 25px;
+    ul {
+      width: 42%;
+    }
   }
 `;
 
@@ -51,6 +64,9 @@ const StyledLogo = styled.div`
   height: 100%;
   img {
     width: 60px;
+  }
+  @media screen and (max-width: 1290px) {
+    width: 10%;
   }
 `;
 
