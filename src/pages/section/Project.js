@@ -9,7 +9,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 const StyledProject = styled.section`
   position: relative;
-  top: 650px;
+  margin-top: 650px;
   width: 100%;
   .slider-container {
     display: flex;

@@ -8,6 +8,7 @@ import Skills from "./section/Skills";
 import SocialMedia from "../components/SocialMedia";
 import Pseudo from "../components/Pseudo";
 import Project from "./section/Project";
+import Contact from "./section/Contact";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -47,6 +48,7 @@ const Home = () => {
       <Me />
       <Skills />
       <Project />
+      <Contact />
     </HomeContainer>
   );
 };

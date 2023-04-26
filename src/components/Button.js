@@ -4,14 +4,18 @@ import theme from "../styles/Theme";
 
 const StyledButton = styled.button` 
   position: relative;
-  padding: 12px 35px;
+  padding: ${props => props.icon ? "5px 25px" : "12px 35px"};
   border: 4px solid ;
   background: none;
   color: ${theme.colors.secondary};
-  font-size: 17px;
+  font-size: ${props => props.icon ? "" : "17px"};
   cursor: pointer;
   overflow: hidden;
   font-family: 'Gugi', serif;
+  svg{
+  font-size: 40px;
+  }
+}
   span {
     z-index: 20;
   }
@@ -36,7 +40,18 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props) => {
-  return <StyledButton>{props.label.toUpperCase()}</StyledButton>;
+  const Label = props.label;
+  return (
+    <>
+      {typeof Label === "string" ? (
+        <StyledButton>{Label.toUpperCase()}</StyledButton>
+      ) : (
+        <StyledButton icon>
+          <Label />
+        </StyledButton>
+      )}
+    </>
+  );
 };
 
 export default Button;
