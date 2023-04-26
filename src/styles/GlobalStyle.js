@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
-    
   }
   body {
     background-color: ${theme.colors.primary};
@@ -37,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
   }
   h2{
     margin: 0;
+  }
+  a{
+    text-decoration: none;
+    color: ${theme.colors.secondary};
   }
   p{
     margin: 0;

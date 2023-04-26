@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
 //Icons
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const StyledSocialMedia = styled.div`
   display: flex;
@@ -12,14 +12,14 @@ const StyledSocialMedia = styled.div`
   position: fixed;
   bottom: 20px;
   left: 50px;
-  .form{
+  .form {
     position: relative;
     bottom: 0;
     background-color: ${theme.colors.fourth};
     width: 5px;
     height: 140px;
   }
-  svg{
+  svg {
     margin-bottom: 20px;
     cursor: pointer;
   }
@@ -27,13 +27,21 @@ const StyledSocialMedia = styled.div`
 `;
 
 const SocialMedia = () => {
-    return(
-        <StyledSocialMedia>
-            <GitHubIcon/>
-            <LinkedInIcon/>
-            <div className="form"></div>
-        </StyledSocialMedia>
-    )
-}
+  return (
+    <StyledSocialMedia>
+      <a target="_blank" href="https://github.com/Sail-Cpu" rel="noreferrer">
+        <GitHubIcon />
+      </a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/sofiane-lasoa-506678234/"
+        rel="noreferrer"
+      >
+        <LinkedInIcon />
+      </a>
+      <div className="form"></div>
+    </StyledSocialMedia>
+  );
+};
 
 export default SocialMedia;
