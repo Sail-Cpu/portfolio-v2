@@ -39,6 +39,7 @@ const StyledProjectTop = styled.div`
 const StyledSlider = styled.div`
   display: flex;
   flex-direction: column;
+  width: 30%;
   .slider-little-bar {
     width: 4px;
     height: 30px;
@@ -49,7 +50,7 @@ const StyledSlide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 100%;
   height: 70px;
   font-size: 25px;
   border-left: ${(props) =>
@@ -61,21 +62,22 @@ const StyledSlide = styled.div`
   box-shadow: ${(props) =>
     props.active ? "0px 6px 15px rgba(0, 0, 0, 0.25)" : ""};
   cursor: pointer;
+  @media screen and (max-width: 950px) {
+    font-size: 18px;
+  }
 `;
 const StyledProjectContent = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: inherit;
+  width: 70%;
   padding: 50px;
-
   h2 {
     position: absolute;
     top: -80px;
     right: 0;
     color: ${theme.colors.third};
   }
-
   .project-image {
     width: 60%;
     height: 100%;
@@ -174,13 +176,13 @@ const StyledProjectContent = styled.div`
     }
   }
   @media screen and (max-width: 950px) {
+    padding: 10px;
     .project-image {
       width: 100%;
       .project-image-content {
         display: flex;
       }
     }
-
     .project-content {
       display: none;
     }

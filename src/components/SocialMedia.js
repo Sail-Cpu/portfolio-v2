@@ -28,7 +28,7 @@ const StyledSocialMedia = styled.div`
     left: 35px;
   }
   @media screen and (max-width: 800px){
-    left: 20px;
+    left: 15px;
   }
 `;
 

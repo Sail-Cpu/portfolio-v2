@@ -53,6 +53,7 @@ const StyledHeroBanner = styled.section`
     }
     h2{
       margin-top: 0;
+      font-size: 45px;
     }
   }
 `;

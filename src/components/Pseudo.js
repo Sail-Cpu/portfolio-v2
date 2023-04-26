@@ -8,6 +8,12 @@ const StyledPseudo = styled.div`
   right: 50px;
   font-size: 35px;
   color: ${theme.colors.fourth};
+  @media screen and (max-width: 1050px){
+    right: 35px;
+  }
+  @media screen and (max-width: 800px){
+    right: 15px;
+  }
 `;
 
 const pseudo = "SAIL";
