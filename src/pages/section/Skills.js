@@ -84,6 +84,12 @@ const StyledSkill = styled.div`
   img {
     height: 40px;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 15px;
+    img {
+      height: 20px;
+    }
+  }
 `;
 
 const Skills = (props) => {

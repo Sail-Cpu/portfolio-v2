@@ -41,6 +41,7 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [y]);
 
+  const HeroRef = useRef(null);
   const MeRef = useRef(null);
   const SkillsRef = useRef(null);
   const ProjectRef = useRef(null);
@@ -71,8 +72,8 @@ const Home = () => {
         ContactRef={ContactRef}
       />
       <SocialMedia />
-      <Pseudo />
-      <Hero scroll={scroll} />
+      <Pseudo HeroRef={HeroRef} />
+      <Hero position={HeroRef} scroll={scroll} />
       <Me position={MeRef} />
       <Skills position={SkillsRef} />
       <Project position={ProjectRef} />

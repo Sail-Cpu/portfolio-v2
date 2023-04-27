@@ -95,7 +95,11 @@ const Hero = (props) => {
   }, [props.scroll]);
 
   return (
-    <StyledHeroBanner scrollHero={heroTop} scrollName={jobTop}>
+    <StyledHeroBanner
+      ref={props.position}
+      scrollHero={heroTop}
+      scrollName={jobTop}
+    >
       <div className="hero-content">
         <h1>{name}</h1>
         <h2>{job}</h2>
