@@ -26,17 +26,14 @@ const StyledHeroBanner = styled.section`
   .presentation-container {
     width: 60%;
     font-size: 18px;
-    margin-top: 5px;
+    margin: 5px 0 20px 0;
     color: rgba(255, 251, 235, 0.5);
-  }
-  button {
-    margin-top: 20px;
   }
   @media screen and (max-width: 1050px) {
     .hero-content {
       top: ${(props) => props.scrollHero + 10 + "px"};
     }
-    .presentation-container{
+    .presentation-container {
       width: 100%;
     }
     h1 {
@@ -48,15 +45,30 @@ const StyledHeroBanner = styled.section`
     }
   }
   @media screen and (max-width: 800px) {
+    display: flex;
+    align-items: center;
     .hero-content {
-      top: 250px;
+      top: 0;
     }
-    h1{
-      font-size: 45px;
+    h1 {
+      font-size: 8vw;
     }
-    h2{
+    h2 {
       margin-top: 0;
+      font-size: 6vw;
+    }
+    .presentation-container {
+      margin: 10px 0 20px 0;
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    h1 {
       font-size: 40px;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 30px;
     }
   }
 `;

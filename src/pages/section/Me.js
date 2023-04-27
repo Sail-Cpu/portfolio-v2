@@ -70,6 +70,9 @@ const StyledPictureContainer = styled.div`
   @media screen and (max-width: 600px) {
     width: 50%;
   }
+  @media screen and (max-width: 500px){
+    width: 70%;
+  }
 `;
 const StyledText = styled.div`
   margin-top: 25px;

@@ -14,6 +14,9 @@ const StyledPseudo = styled.div`
   @media screen and (max-width: 800px){
     right: 15px;
   }
+  @media screen and (max-width: 700px){
+    display: none;
+  }
 `;
 
 const pseudo = "SAIL";

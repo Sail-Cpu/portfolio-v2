@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import Gugi from '../font/Gugi-Regular.ttf';
+import Gugi from "../font/Gugi-Regular.ttf";
 import theme from "./Theme";
-
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -43,6 +42,14 @@ const GlobalStyle = createGlobalStyle`
   }
   p{
     margin: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 7px;
+    
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.fourth};
+    border-radius: 20px;
   }
 `;
 

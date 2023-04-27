@@ -31,7 +31,7 @@ const StyledSocialMedia = styled.div`
     left: 15px;
   }
   @media screen and (max-width: 700px){
-    left: 8px;
+    display: none;
   }
   
 `;
