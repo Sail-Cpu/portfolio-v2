@@ -25,6 +25,11 @@ const StyledContact = styled.section`
     color: ${theme.colors.fourth};
     margin-bottom: 15px;
   }
+  @media screen and (max-width: 900px){
+    .text{
+      width: 100%;
+    }
+  }
 `;
 
 

@@ -71,7 +71,7 @@ const StyledProjectContent = styled.div`
   display: flex;
   align-items: center;
   width: 70%;
-  padding: 50px;
+  padding: 50px 20px;
   h2 {
     position: absolute;
     top: -80px;
