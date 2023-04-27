@@ -30,6 +30,10 @@ const StyledSocialMedia = styled.div`
   @media screen and (max-width: 800px){
     left: 15px;
   }
+  @media screen and (max-width: 700px){
+    left: 8px;
+  }
+  
 `;
 
 const SocialMedia = () => {

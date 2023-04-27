@@ -16,6 +16,12 @@ const StyledProject = styled.section`
     width: 100%;
     padding-left: 50px;
   }
+  @media screen and (max-width: 700px) {
+    .slider-container {
+      flex-direction: column;
+      padding-left: 0;
+    }
+  }
 `;
 const StyledProjectTop = styled.div`
   display: flex;
@@ -39,20 +45,32 @@ const StyledProjectTop = styled.div`
 const StyledSlider = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: auto;
   .slider-little-bar {
     width: 4px;
     height: 30px;
     background-color: ${theme.colors.secondary};
   }
+  @media screen and (max-width: 700px) {
+    flex-direction: row;
+    width: 100%;
+    .slider-little-bar {
+      display: none;
+    }
+    overflow-x: scroll;
+    ::-webkit-scrollbar {
+      height: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${theme.colors.fourth};
+    }
+  }
 `;
 const StyledSlide = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px 20px;
   width: 100%;
-  height: 70px;
-  font-size: 25px;
   border-left: ${(props) =>
     props.active
       ? "4px solid" + theme.colors.third
@@ -65,12 +83,22 @@ const StyledSlide = styled.div`
   @media screen and (max-width: 950px) {
     font-size: 18px;
   }
+  @media screen and (max-width: 700px) {
+    border-right: none;
+    font-size: 13px;
+    border-left: none;
+    border-bottom: ${(props) =>
+      props.active
+        ? "4px solid" + theme.colors.third
+        : "4px solid" + theme.colors.secondary};
+    margin-bottom: 10px;
+  }
 `;
 const StyledProjectContent = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: max-content;
   padding: 50px 20px;
   h2 {
     position: absolute;
@@ -117,7 +145,6 @@ const StyledProjectContent = styled.div`
       margin-top: 10px;
     }
   }
-
   .project-content {
     display: flex;
     flex-direction: column;
@@ -132,7 +159,6 @@ const StyledProjectContent = styled.div`
       padding: 0 20px;
       width: 100%;
       height: 50px;
-
       h1 {
         font-size: 2vw;
       }
@@ -150,7 +176,6 @@ const StyledProjectContent = styled.div`
       width: 100%;
       height: 10%;
       padding: 0 20px;
-
       span {
         font-size: 15px;
         margin-right: 10px;
@@ -165,7 +190,6 @@ const StyledProjectContent = styled.div`
         background-color: ${theme.colors.fourth};
       }
     }
-
     .git {
       display: flex;
       align-items: center;
@@ -184,6 +208,14 @@ const StyledProjectContent = styled.div`
       }
     }
     .project-content {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    margin-top: 10px;
+    padding: 0;
+    width: 100%;
+    h2 {
       display: none;
     }
   }
@@ -214,7 +246,7 @@ const Project = (props) => {
                 onClick={() => setActiveIdx(idx)}
                 active={activeIdx === idx}
               >
-                {project.name}
+                <span>{project.name}</span>
               </StyledSlide>
             );
           })}

@@ -7,7 +7,7 @@ import Sera from "../assets/img/sera.png";
 
 const Project = [
   {
-    name: "Alcorn ' List",
+    name: "Alcorn'List",
     description:
       "Un catalogue de jeux vidéo présentant \n" +
       "plus de 500 000 jeux, triés dans différentes \n" +
@@ -56,7 +56,7 @@ const Project = [
     git: "",
   },
   {
-    name: "Portfolio v1",
+    name: "PortfolioV1",
     description:
       "Mon Cv numérique qui vous parle de moi, de mes compétences, " +
       "de mes projets et qui vous donnera je l'espère l'envie de travailler avec moi.",

@@ -51,9 +51,12 @@ const StyledHeroBanner = styled.section`
     .hero-content {
       top: 250px;
     }
+    h1{
+      font-size: 45px;
+    }
     h2{
       margin-top: 0;
-      font-size: 45px;
+      font-size: 40px;
     }
   }
 `;

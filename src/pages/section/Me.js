@@ -20,7 +20,6 @@ const StyledMe = styled.section`
     }
   }
 `;
-
 const StyledMeBar = styled.div`
   position: absolute;
   top: 45px;
