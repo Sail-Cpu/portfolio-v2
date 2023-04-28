@@ -11,6 +11,14 @@ const Values = [
     title: "Curieux",
     text: "Constamment en apprentissage sur les technologies JavaScript",
   },
+  {
+    title: "Ambitieux",
+    text: "J’ai confiance en mes capacités et je désire progresser",
+  },
+  {
+    title: "Adaptable",
+    text: "Je m'adapte selon les projets et les codebases",
+  },
 ];
 
 export default Values;

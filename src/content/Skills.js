@@ -13,6 +13,10 @@ import intelijIcon from "../assets/icons/intelij.png";
 import figmaIcon from "../assets/icons/figma.png";
 import photoshopIcon from "../assets/icons/photoshop.png";
 
+export const Skills = {
+  name:"Skills"
+}
+
 export const TechnoSkills = [
   {
     name: "react js",

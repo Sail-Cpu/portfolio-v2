@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
-import { TechnoSkills, ToolsSkills } from "../../content/Skills";
+import {
+  Skills as SkillsContent,
+  TechnoSkills,
+  ToolsSkills,
+} from "../../content/Skills";
 import SectionName from "../../components/SectionName";
 
 const StyledSkillsContainer = styled.section`
@@ -105,7 +109,7 @@ const Skills = (props) => {
       <div className="skills-top">
         <SectionName
           nb="02"
-          name="Skills"
+          name={SkillsContent.name}
           setNbWidth={setNbWidth}
           setNameWidth={setNameWidth}
         />

@@ -5,6 +5,10 @@ import Dragon from "../assets/img/dragonio.png";
 import Portfolio from "../assets/img/portfolio.png";
 import Sera from "../assets/img/sera.png";
 
+export const ProjectName = {
+  name: "Mes Projets"
+}
+
 const Project = [
   {
     name: "Alcorn'List",

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SectionName from "../../components/SectionName";
 import theme from "../../styles/Theme";
 //Project
-import AllProject from "../../content/Project";
+import AllProject, { ProjectName } from "../../content/Project";
 //Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -98,9 +98,9 @@ const StyledProjectContent = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: max-content;
+  width: 100%;
   padding: 50px 20px;
-  min-height: 320px;
+  min-height: 350px;
   h2 {
     position: absolute;
     top: -80px;
@@ -241,7 +241,7 @@ const Project = (props) => {
   return (
     <StyledProject ref={props.position}>
       <StyledProjectTop>
-        <SectionName nb="03" name="Mes Projets" />
+        <SectionName nb="03" name={ProjectName.name} />
         <div className="project-bar-left"></div>
         <div className="project-bar-right"></div>
       </StyledProjectTop>
@@ -275,7 +275,9 @@ const Project = (props) => {
                   })}
               </div>
               <div className="project-image-git">
-                <GitHubIcon />
+                <a target="_blank" href={activeProject.git} rel="noreferrer">
+                  <GitHubIcon />
+                </a>
               </div>
             </div>
           </div>

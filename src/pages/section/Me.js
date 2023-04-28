@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
+import MeContent from "../../content/Me";
 import Values from "../../content/Values";
 //Components
 import SectionName from "../../components/SectionName";
@@ -102,28 +103,17 @@ const StyledText = styled.div`
   }
 `;
 
-const paragraph1 =
-  "Bonjour, je m'appelle Sofiane, j'ai 20 ans et je vis dans les " +
-  "environs de Lille. Actuellement, je suis en 2ème année de " +
-  "B.U.T informatique à l'Université de Lille.";
-const paragraph2 =
-  "Je suis passionné par le développement web et j'apprends de " +
-  "manière autodidacte depuis 3 ans. Très motivé, je sais écouter " +
-  "les demandes et fournir le travail nécessaire. Curieux, j'aime " +
-  "découvrir de nouvelles choses et je n'ai pas peur de travailler" +
-  "avec des technologies récentes. Grâce à ma bonne capacité" +
-  "d'adaptation, je peux facilement intégrer une nouvelle équipe.";
-
 const Me = (props) => {
   return (
     <StyledMe ref={props.position}>
-      <SectionName nb="01" name="Moi" />
+      <SectionName nb="01" name={MeContent.title} />
       <StyledMeBar width="55" left />
       <StyledMeBar width="10" right />
       <div className="me-content">
         <StyledText>
-          <p>{paragraph1}</p>
-          <p>{paragraph2}</p>
+          {MeContent.paragrah.map((par, idx) => {
+            return <p key={idx} >{par}</p>;
+          })}
         </StyledText>
         <StyledPictureContainer>
           <div className="picture"></div>

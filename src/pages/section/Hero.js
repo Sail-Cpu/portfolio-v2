@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import HeroContent from '../../content/Hero';
 //Components
 import Button from "../../components/Button";
 
@@ -73,13 +74,6 @@ const StyledHeroBanner = styled.section`
   }
 `;
 
-const name = "Sofiane Lasoa";
-const job = "Je suis Developpeur Web";
-const presentation =
-  "Véritablement passionne par le développement " +
-  "web je suis actuellement à la recherche d’un stage " +
-  "dans ce domaine";
-
 const Hero = (props) => {
   const [heroTop, setHeroTop] = useState(165);
   const [jobTop, setJobTop] = useState(135);
@@ -101,17 +95,17 @@ const Hero = (props) => {
       scrollName={jobTop}
     >
       <div className="hero-content">
-        <h1>{name}</h1>
-        <h2>{job}</h2>
+        <h1>{HeroContent.name}</h1>
+        <h2>{HeroContent.job}</h2>
         <div className="presentation-container">
-          <p>{presentation}</p>
+          <p>{HeroContent.presentation}</p>
         </div>
         <a
           target="_blank"
-          href="https://drive.google.com/file/d/19gMygkLdiLeLrB3wIQKvZTtZHAnHJZfq/view"
+          href={HeroContent.buttonLink}
           rel="noreferrer"
         >
-          <Button label="Mon Cv" />
+          <Button label={HeroContent.button} />
         </a>
       </div>
     </StyledHeroBanner>

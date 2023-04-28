@@ -32,6 +32,9 @@ const StyledMobileNav = styled.nav`
     height: 25%;
     font-size: 30px;
     color: ${theme.colors.fourth};
+    h1{
+      cursor: pointer;
+    }
   }
   @media screen and (min-width: 800px) {
     display: none;
@@ -84,7 +87,7 @@ const MobileNav = (props) => {
         </StyledNavLink>
       </ul>
       <ul className="pseudo-container">
-        <h1>SAIL</h1>
+        <h1 onClick={() => scrollToRef(props.HeroRef)} >SAIL</h1>
       </ul>
     </StyledMobileNav>
   );

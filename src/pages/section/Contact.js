@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import theme from "../../styles/Theme";
+import ContactContent from "../../content/Contact";
 //Components
 import SectionName from "../../components/SectionName";
 import Button from "../../components/Button";
@@ -36,16 +37,14 @@ const StyledContact = styled.section`
 const Contact = (props) => {
     return (
       <StyledContact ref={props.position}>
-        <SectionName nb="04" name="Me Contacter" />
+        <SectionName nb="04" name={ContactContent.name} />
         <div className="bar"></div>
         <div className="text">
           <p>
-            En ce moment, je suis à la recherche d'expérience dans l'univers du
-            développement web. Si mon profil vous intéresse, n'hésitez pas à me
-            contacter.
+              {ContactContent.text}
           </p>
         </div>
-        <a href="mailto:sofiane.lasoa1@hotmail.com">
+        <a href={ContactContent.mail}>
           <Button label={MailOutlineIcon} />
         </a>
       </StyledContact>

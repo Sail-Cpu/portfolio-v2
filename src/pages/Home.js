@@ -62,6 +62,7 @@ const Home = () => {
         SkillsRef={SkillsRef}
         ProjectRef={ProjectRef}
         ContactRef={ContactRef}
+        HeroRef={HeroRef}
       />
       <NavBar
         scroll={scroll}
