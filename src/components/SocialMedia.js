@@ -6,6 +6,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const StyledSocialMedia = styled.div`
+  z-index: 99;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,17 +24,23 @@ const StyledSocialMedia = styled.div`
     margin-bottom: 20px;
     cursor: pointer;
   }
-  color: ${theme.colors.secondary};
-  @media screen and (max-width: 1050px){
+  a {
+    transition: 0.4s ease;
+    color: ${theme.colors.secondary};
+  }
+  a:hover {
+    color: ${theme.colors.third};
+  }
+
+  @media screen and (max-width: 1050px) {
     left: 35px;
   }
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px) {
     left: 15px;
   }
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     display: none;
   }
-  
 `;
 
 const SocialMedia = () => {

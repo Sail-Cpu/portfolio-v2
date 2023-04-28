@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
+import Values from "../../content/Values";
 //Components
 import SectionName from "../../components/SectionName";
 import Picture from "../../assets/img/picture.png";
+import Value from "../../components/Value";
 
 const StyledMe = styled.section`
   position: relative;
@@ -13,6 +15,12 @@ const StyledMe = styled.section`
     display: flex;
     align-items: center;
     width: 100%;
+  }
+  .me-value {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
   }
   @media screen and (max-width: 600px) {
     .me-content {
@@ -70,7 +78,7 @@ const StyledPictureContainer = styled.div`
   @media screen and (max-width: 600px) {
     width: 50%;
   }
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     width: 70%;
   }
 `;
@@ -121,6 +129,11 @@ const Me = (props) => {
           <div className="picture"></div>
           <div className="picture-fond"></div>
         </StyledPictureContainer>
+      </div>
+      <div className="me-value">
+        {Values.map((value, idx) => {
+          return <Value key={idx} title={value.title} text={value.text} />;
+        })}
       </div>
     </StyledMe>
   );

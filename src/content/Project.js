@@ -15,10 +15,7 @@ const Project = [
     date: 2022,
     image: Alcorn,
     techno: ["React", "JavaScript", "Html", "Scss"],
-    git: {
-      app: "github",
-      link: "",
-    },
+    git: "https://github.com/Sail-Cpu/alcorn-s_list",
   },
   {
     name: "OUT.",
@@ -29,7 +26,7 @@ const Project = [
     date: 2022,
     image: Out,
     techno: ["React", "JavaScript", "Html", "Scss"],
-    git: "",
+    git: "https://github.com/Sail-Cpu/out",
   },
   {
     name: "Dragon.io",
@@ -41,7 +38,7 @@ const Project = [
     date: 2023,
     image: Dragon,
     techno: ["TypeScript", "Html", "Css", "Babel"],
-    git: "",
+    git: "https://gitlab.univ-lille.fr/sofiane.lasoa.etu/sae-2023-groupei-lasoa-gomis",
   },
   {
     name: "Sera",
@@ -53,7 +50,7 @@ const Project = [
     date: 2023,
     image: Sera,
     techno: ["Node", "Express", "JavaScript"],
-    git: "",
+    git: "https://github.com/Sail-Cpu/Sera",
   },
   {
     name: "PortfolioV1",
@@ -63,7 +60,7 @@ const Project = [
     date: 2023,
     image: Portfolio,
     techno: ["JavaScript", "Html", "Css"],
-    git: "",
+    git: "https://github.com/Sail-Cpu/portfolio",
   },
 ];
 

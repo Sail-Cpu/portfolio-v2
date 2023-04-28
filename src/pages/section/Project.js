@@ -69,7 +69,7 @@ const StyledSlider = styled.div`
 const StyledSlide = styled.div`
   text-align: center;
   font-size: 20px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   width: 100%;
   border-left: ${(props) =>
     props.active
@@ -100,6 +100,7 @@ const StyledProjectContent = styled.div`
   align-items: center;
   width: max-content;
   padding: 50px 20px;
+  min-height: 320px;
   h2 {
     position: absolute;
     top: -80px;
@@ -191,12 +192,20 @@ const StyledProjectContent = styled.div`
       }
     }
     .git {
+      margin-top: 5px;
       display: flex;
       align-items: center;
       width: 100%;
       height: 10%;
       padding: 0 20px;
       font-size: 30px;
+      a {
+        transition: 0.4s ease;
+        color: ${theme.colors.secondary};
+      }
+      a:hover {
+        color: ${theme.colors.third};
+      }
     }
   }
   @media screen and (max-width: 950px) {
@@ -284,7 +293,9 @@ const Project = (props) => {
                 })}
             </div>
             <div className="git">
-              <GitHubIcon />
+              <a target="_blank" href={activeProject.git} rel="noreferrer">
+                <GitHubIcon />
+              </a>
             </div>
           </div>
         </StyledProjectContent>
