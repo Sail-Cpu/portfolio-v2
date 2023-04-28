@@ -11,6 +11,8 @@ import Project from "./section/Project";
 import Contact from "./section/Contact";
 import NavIcon from "../components/NavIcon";
 import MobileNav from "../components/MobileNav";
+import Language from "../components/Language";
+import AllLanguage from "../content/Language";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -48,6 +50,7 @@ const Home = () => {
   const ContactRef = useRef(null);
 
   const [openMobileNav, setOpenMobileNav] = useState(false);
+  const [language, setLanguage] = useState(AllLanguage[0]);
 
   return (
     <HomeContainer>
@@ -72,6 +75,7 @@ const Home = () => {
         ProjectRef={ProjectRef}
         ContactRef={ContactRef}
       />
+      <Language setLanguage={setLanguage} language={language} />
       <SocialMedia />
       <Pseudo HeroRef={HeroRef} />
       <Hero position={HeroRef} scroll={scroll} />
