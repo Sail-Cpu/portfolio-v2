@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 import MeContent from "../../content/Me";
@@ -7,6 +7,7 @@ import Values from "../../content/Values";
 import SectionName from "../../components/SectionName";
 import Picture from "../../assets/img/picture.png";
 import Value from "../../components/Value";
+import HeroContent from "../../content/Hero";
 
 const StyledMe = styled.section`
   position: relative;
@@ -104,15 +105,29 @@ const StyledText = styled.div`
 `;
 
 const Me = (props) => {
+  const [content, setContent] = useState(MeContent.fr);
+  const [values, setValues] = useState(Values.fr);
+
+  useEffect(() => {
+    if (props.language.name === "fr") {
+      setContent(MeContent.fr);
+      setValues(Values.fr);
+    }
+    if (props.language.name === "en") {
+      setContent(MeContent.en);
+      setValues(Values.en);
+    }
+  }, [props.language]);
+
   return (
     <StyledMe ref={props.position}>
-      <SectionName nb="01" name={MeContent.title} />
+      <SectionName nb="01" name={content.title} />
       <StyledMeBar width="55" left />
       <StyledMeBar width="10" right />
       <div className="me-content">
         <StyledText>
-          {MeContent.paragrah.map((par, idx) => {
-            return <p key={idx} >{par}</p>;
+          {content.paragrah.map((par, idx) => {
+            return <p key={idx}>{par}</p>;
           })}
         </StyledText>
         <StyledPictureContainer>
@@ -121,7 +136,7 @@ const Me = (props) => {
         </StyledPictureContainer>
       </div>
       <div className="me-value">
-        {Values.map((value, idx) => {
+        {values.map((value, idx) => {
           return <Value key={idx} title={value.title} text={value.text} />;
         })}
       </div>

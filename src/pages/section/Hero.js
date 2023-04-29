@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import HeroContent from '../../content/Hero';
+import HeroContent from "../../content/Hero";
 //Components
 import Button from "../../components/Button";
 
@@ -77,6 +77,7 @@ const StyledHeroBanner = styled.section`
 const Hero = (props) => {
   const [heroTop, setHeroTop] = useState(165);
   const [jobTop, setJobTop] = useState(135);
+  const [content, setContent] = useState(HeroContent.fr);
 
   useEffect(() => {
     if (props.scroll) {
@@ -88,6 +89,11 @@ const Hero = (props) => {
     }
   }, [props.scroll]);
 
+  useEffect(() => {
+    if (props.language.name === "fr") setContent(HeroContent.fr);
+    if (props.language.name === "en") setContent(HeroContent.en);
+  }, [props.language]);
+
   return (
     <StyledHeroBanner
       ref={props.position}
@@ -95,17 +101,13 @@ const Hero = (props) => {
       scrollName={jobTop}
     >
       <div className="hero-content">
-        <h1>{HeroContent.name}</h1>
-        <h2>{HeroContent.job}</h2>
+        <h1>{content.name}</h1>
+        <h2>{content.job}</h2>
         <div className="presentation-container">
-          <p>{HeroContent.presentation}</p>
+          <p>{content.presentation}</p>
         </div>
-        <a
-          target="_blank"
-          href={HeroContent.buttonLink}
-          rel="noreferrer"
-        >
-          <Button label={HeroContent.button} />
+        <a target="_blank" href={content.buttonLink} rel="noreferrer">
+          <Button label={content.button} />
         </a>
       </div>
     </StyledHeroBanner>

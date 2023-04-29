@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
+import NavContent from "../content/Nav";
 //Image
 import Logo from "../assets/img/logo.png";
 
@@ -70,35 +71,36 @@ const StyledLogo = styled.div`
   }
 `;
 
-const li1 = "ME CONNAITRE";
-const li2 = "SKILLS";
-const li3 = "PROJETS";
-const li4 = "ME CONTACTER";
-
 const NavBar = (props) => {
   const [navTop, setNavTop] = useState(250);
+  const [links, setLinks] = useState(NavContent.fr)
 
-  function scrollToRef(ref) {
-    window.scrollTo({ top: ref.current.offsetTop - 180, behavior: "smooth" });
-  }
-
-  useEffect(() => {
-    if (props.scroll) {
-      setNavTop(30);
-    } else {
-      setNavTop(250);
+    function scrollToRef(ref) {
+      window.scrollTo({ top: ref.current.offsetTop - 180, behavior: "smooth" });
     }
-  }, [props.scroll]);
+
+    useEffect(() => {
+      if (props.scroll) {
+        setNavTop(30);
+      } else {
+        setNavTop(250);
+      }
+    }, [props.scroll]);
+
+    useEffect(() => {
+      if(props.language.name === "fr") setLinks(NavContent.fr)
+      if(props.language.name === "en") setLinks(NavContent.en)
+  }, [props.language])
 
   return (
     <StyledNavBarContainer scroll={navTop}>
       <StyledNavBar toTop={props.toTop}>
         <ul>
           <li onClick={() => scrollToRef(props.MeRef)}>
-            <span>01.</span> {li1}
+            <span>01.</span> {links.link1.toUpperCase()}
           </li>
           <li onClick={() => scrollToRef(props.SkillsRef)}>
-            <span>02.</span> {li2}
+            <span>02.</span> {links.link2.toUpperCase()}
           </li>
         </ul>
         <StyledLogo>
@@ -106,10 +108,10 @@ const NavBar = (props) => {
         </StyledLogo>
         <ul>
           <li onClick={() => scrollToRef(props.ProjectRef)}>
-            <span>03.</span> {li3}
+            <span>03.</span> {links.link3.toUpperCase()}
           </li>
           <li onClick={() => scrollToRef(props.ContactRef)}>
-            <span>04.</span> {li4}
+            <span>04.</span> {links.link4.toUpperCase()}
           </li>
         </ul>
       </StyledNavBar>

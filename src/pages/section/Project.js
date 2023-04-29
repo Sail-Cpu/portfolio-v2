@@ -232,11 +232,21 @@ const StyledProjectContent = styled.div`
 
 const Project = (props) => {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [activeProject, setActiveProject] = useState({});
+  const [activeProject, setActiveProject] = useState(AllProject[activeIdx]);
+  const [activeProjectDesc, setActiveProjectDesc] = useState("");
 
   useEffect(() => {
     setActiveProject(AllProject[activeIdx]);
-  }, [activeIdx]);
+    if (props.language.name === "fr")
+      setActiveProjectDesc(activeProject.description.fr);
+    if (props.language.name === "en")
+      setActiveProjectDesc(activeProject.description.en);
+  }, [
+    activeIdx,
+    activeProject.description.en,
+    activeProject.description.fr,
+    props.language.name,
+  ]);
 
   return (
     <StyledProject ref={props.position}>
@@ -266,7 +276,7 @@ const Project = (props) => {
             <div className="project-image-content">
               <div className="project-image-title">{activeProject.name}</div>
               <div className="project-image-description">
-                {activeProject.description}
+                {activeProjectDesc}
               </div>
               <div className="project-image-techno">
                 {activeProject.techno &&
@@ -285,9 +295,7 @@ const Project = (props) => {
             <div className="project-title">
               <h1>{activeProject.name}</h1>
             </div>
-            <div className="project-description">
-              {activeProject.description}
-            </div>
+            <div className="project-description">{activeProjectDesc}</div>
             <div className="techno">
               {activeProject.techno &&
                 activeProject.techno.map((project, idx) => {

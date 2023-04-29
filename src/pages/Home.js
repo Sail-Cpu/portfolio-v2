@@ -38,7 +38,6 @@ const Home = () => {
         setScroll(false);
       }
     }
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [y]);
@@ -66,6 +65,7 @@ const Home = () => {
         ProjectRef={ProjectRef}
         ContactRef={ContactRef}
         HeroRef={HeroRef}
+        language={language}
       />
       <NavBar
         scroll={scroll}
@@ -74,15 +74,16 @@ const Home = () => {
         SkillsRef={SkillsRef}
         ProjectRef={ProjectRef}
         ContactRef={ContactRef}
+        language={language}
       />
       <Language setLanguage={setLanguage} language={language} />
       <SocialMedia />
       <Pseudo HeroRef={HeroRef} />
-      <Hero position={HeroRef} scroll={scroll} />
-      <Me position={MeRef} />
+      <Hero position={HeroRef} scroll={scroll} language={language} />
+      <Me position={MeRef} language={language}/>
       <Skills position={SkillsRef} />
-      <Project position={ProjectRef} />
-      <Contact position={ContactRef} />
+      <Project position={ProjectRef} language={language}/>
+      <Contact position={ContactRef} language={language}/>
     </HomeContainer>
   );
 };
