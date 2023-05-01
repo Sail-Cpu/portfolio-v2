@@ -3,10 +3,13 @@ import styled from "styled-components";
 import theme from "../styles/Theme";
 
 const StyledSectionName = styled.div`
-  font-size: 30px;
+  font-size: 35px;
   .sectionNameNb {
     color: ${theme.colors.third};
     margin-right: 15px;
+  }
+  @media screen and (max-width: 600px){
+    font-size: 25px;
   }
 `;
 

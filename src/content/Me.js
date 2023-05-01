@@ -4,8 +4,8 @@ const Me = {
   fr: {
     title: "Moi",
     paragrah: [
-      "Bonjour, je m'appelle Sofiane, j'ai 20 ans et je vis dans les environs de Lille. Actuellement, je suis en 2ème année de B.U.T informatique à l'Université de Lille.",
-      "Je suis passionné par le développement web et j'apprends de manière autodidacte depuis 3 ans. Très motivé, je sais écouter les demandes et fournir le travail nécessaire. Curieux, j'aime découvrir de nouvelles choses et je n'ai pas peur de travailleravec des technologies récentes. Grâce à ma bonne capacitéd'adaptation, je peux facilement intégrer une nouvelle équipe.",
+      "Bonjour, je m'appelle Sofiane, j'ai 20 ans et je vis dans les environs de Lille. Actuellement, je suis en 2eme année de B.U.T informatique a l'Université de Lille.",
+      "Je suis passionne par le développement web et j'apprends de maniere autodidacte depuis 3 ans. Tres motive, je sais ecouter les demandes et fournir le travail necessaire. Curieux, j'aime decouvrir de nouvelles choses et je n'ai pas peur de travailler avec des technologies recentes. Grace a ma bonne capacite d'adaptation, je peux facilement integrer une nouvelle equipe.",
     ],
     picture: Picture,
   },

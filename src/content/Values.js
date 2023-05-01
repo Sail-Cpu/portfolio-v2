@@ -2,11 +2,11 @@ const Values = {
   fr: [
     {
       title: "Autonome",
-      text: "Je sais observer et me renseigner pour effectuer mes tâches",
+      text: "Je sais observer et me renseigner pour effectuer mes taches",
     },
     {
       title: "Perseverant",
-      text: "Toujours sur le coup pour débugguer des situations",
+      text: "Toujours sur le coup pour debugguer des situations",
     },
     {
       title: "Curieux",
@@ -14,7 +14,7 @@ const Values = {
     },
     {
       title: "Ambitieux",
-      text: "J’ai confiance en mes capacités et je désire progresser",
+      text: "J’ai confiance en mes capacites et je desire progresser",
     },
     {
       title: "Adaptable",
@@ -23,7 +23,7 @@ const Values = {
   ],
   en: [
     {
-      title: "indépendant",
+      title: "independant",
       text: "I know how to observe and gather information in order to perform my tasks",
     },
     {

@@ -10,11 +10,17 @@ import SectionName from "../../components/SectionName";
 
 const StyledSkillsContainer = styled.section`
   margin-top: 150px;
+  margin-bottom: 390px;
   width: 100%;
-  position: absolute;
   left: 0;
   right: 0;
   overflow: hidden;
+  .skills-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
   .slider-skills {
     margin: 30px 0;
     width: 100%;
@@ -81,16 +87,22 @@ const StyledSkill = styled.div`
   width: fit-content;
   background-color: ${theme.colors.primary};
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
-  font-size: 30px;
+  font-size: 2vw;
   span {
     margin-right: 25px;
   }
   img {
-    height: 40px;
+    height: 2vw;
   }
-  @media screen and (max-width: 900px) {
-    font-size: 15px;
-    img {
+  @media screen and (min-width: 1300px){
+    font-size: 30px;
+    img{
+      height: 40px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    font-size: 12px;
+    img{
       height: 20px;
     }
   }
@@ -106,50 +118,52 @@ const Skills = (props) => {
       nbWidth={nbWidth}
       nameWidth={nameWidth}
     >
-      <div className="skills-top">
-        <SectionName
-          nb="02"
-          name={SkillsContent.name}
-          setNbWidth={setNbWidth}
-          setNameWidth={setNameWidth}
-        />
-        <div className="skills-bar-vertical">
-          <div className="skills-bar-vertical-1"></div>
-          <div className="skills-bar-vertical-2"></div>
+      <div className="skills-container">
+        <div className="skills-top">
+          <SectionName
+            nb="02"
+            name={SkillsContent.name}
+            setNbWidth={setNbWidth}
+            setNameWidth={setNameWidth}
+          />
+          <div className="skills-bar-vertical">
+            <div className="skills-bar-vertical-1"></div>
+            <div className="skills-bar-vertical-2"></div>
+          </div>
+          <div className="skills-bar-horizontal"></div>
         </div>
-        <div className="skills-bar-horizontal"></div>
-      </div>
-      <div className="slider-skills">
-        {[...Array(3)].map((_, idx) => {
-          return (
-            <div key={idx} className="slide-skill-to-left">
-              {TechnoSkills.map((skill, idx) => {
-                return (
-                  <StyledSkill key={idx}>
-                    <span>{skill.name.toUpperCase()}</span>
-                    <img src={skill.icon} alt={skill.name + " icon"} />
-                  </StyledSkill>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-      <div className="slider-skills">
-        {[...Array(3)].map((_, idx) => {
-          return (
-            <div key={idx} className="slide-skill-to-right">
-              {ToolsSkills.map((skill, idx) => {
-                return (
-                  <StyledSkill key={idx}>
-                    <span>{skill.name.toUpperCase()}</span>
-                    <img src={skill.icon} alt={skill.name + " icon"} />
-                  </StyledSkill>
-                );
-              })}
-            </div>
-          );
-        })}
+        <div className="slider-skills">
+          {[...Array(3)].map((_, idx) => {
+            return (
+              <div key={idx} className="slide-skill-to-left">
+                {TechnoSkills.map((skill, idx) => {
+                  return (
+                    <StyledSkill key={idx}>
+                      <span>{skill.name.toUpperCase()}</span>
+                      <img src={skill.icon} alt={skill.name + " icon"} />
+                    </StyledSkill>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+        <div className="slider-skills">
+          {[...Array(3)].map((_, idx) => {
+            return (
+              <div key={idx} className="slide-skill-to-right">
+                {ToolsSkills.map((skill, idx) => {
+                  return (
+                    <StyledSkill key={idx}>
+                      <span>{skill.name.toUpperCase()}</span>
+                      <img src={skill.icon} alt={skill.name + " icon"} />
+                    </StyledSkill>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </StyledSkillsContainer>
   );

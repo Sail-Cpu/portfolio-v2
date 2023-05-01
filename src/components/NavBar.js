@@ -88,9 +88,9 @@ const NavBar = (props) => {
     }, [props.scroll]);
 
     useEffect(() => {
-      if(props.language.name === "fr") setLinks(NavContent.fr)
-      if(props.language.name === "en") setLinks(NavContent.en)
-  }, [props.language])
+      if (props.language.name === "fr") setLinks(NavContent.fr);
+      if (props.language.name === "en") setLinks(NavContent.en);
+    }, [props.language]);
 
   return (
     <StyledNavBarContainer scroll={navTop}>

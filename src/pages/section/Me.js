@@ -7,11 +7,10 @@ import Values from "../../content/Values";
 import SectionName from "../../components/SectionName";
 import Picture from "../../assets/img/picture.png";
 import Value from "../../components/Value";
-import HeroContent from "../../content/Hero";
 
 const StyledMe = styled.section`
   position: relative;
-  margin-top: 180px;
+  margin-top: 120px;
   width: 100%;
   .me-content {
     display: flex;
@@ -23,6 +22,9 @@ const StyledMe = styled.section`
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 30px;
     margin-top: 100px;
+  }
+  @media screen and (max-width: 800px) {
+    margin-top: 20px;
   }
   @media screen and (max-width: 600px) {
     .me-content {
@@ -41,6 +43,9 @@ const StyledMeBar = styled.div`
   @media screen and (max-width: 800px) {
     display: ${(props) => (props.right ? "none" : "block")};
     width: 100%;
+  }
+  @media screen and (max-width: 600px) {
+    top: 35px;
   }
 `;
 const StyledPictureContainer = styled.div`

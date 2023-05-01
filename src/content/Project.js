@@ -13,9 +13,10 @@ const Project = [
   {
     name: "Alcorn'List",
     description: {
-      fr: "Un catalogue de jeux vidéo présentant \n" +
-        "plus de 500 000 jeux, triés dans différentes \n" +
-        "catégories.",
+      fr:
+        "Un catalogue de jeux vidéo presentant \n" +
+        "plus de 500 000 jeux, tries dans differentes \n" +
+        "categories.",
       en: "A video game catalog featuring over 500,000 games, sorted into different categories.",
     },
     date: 2022,
@@ -26,11 +27,13 @@ const Project = [
   {
     name: "OUT.",
     description: {
-      fr: "Une application qui te donne des conseils sur les vêtements " +
-        "à porter en fonction de la météo, tu choisis la localisation et " +
+      fr:
+        "Une application qui te donne des conseils sur les vetements " +
+        "a porter en fonction de la meteo, tu choisis la localisation et " +
         "elle te donne une liste de pantalons, de vestes, etc. que tu peux porter.",
-      en: "An application that gives you advice on what clothes to wear based on the weather. " +
-          "You choose the location and it provides you with a list of pants, jackets, etc. that you can wear.",
+      en:
+        "An application that gives you advice on what clothes to wear based on the weather. " +
+        "You choose the location and it provides you with a list of pants, jackets, etc. that you can wear.",
     },
     date: 2022,
     image: Out,
@@ -40,13 +43,15 @@ const Project = [
   {
     name: "Dragon.io",
     description: {
-      fr: "Une adaptation d'Agar.io basée sur l'univers de Dragon Ball Z. Le jeu " +
-          "met en scène les personnages emblématiques de la série, tels que Goku, Vegeta " +
-          "ou Freezer, et vous permet d'absorber des boules de ki pour devenir plus fort et " +
-          "combattre d'autres joueurs en ligne.",
-      en: "An adaptation of Agar.io based on the Dragon Ball Z universe. The game features " +
-          "iconic characters from the series such as Goku, Vegeta, or Frieza, and allows " +
-          "you to absorb ki balls to become stronger and battle other players online.",
+      fr:
+        "Une adaptation d'Agar.io basee sur l'univers de Dragon Ball Z. Le jeu " +
+        "met en scène les personnages emblematiques de la serie, tels que Goku, Vegeta " +
+        "ou Freezer, et vous permet d'absorber des boules de ki pour devenir plus fort et " +
+        "combattre d'autres joueurs en ligne.",
+      en:
+        "An adaptation of Agar.io based on the Dragon Ball Z universe. The game features " +
+        "iconic characters from the series such as Goku, Vegeta, or Frieza, and allows " +
+        "you to absorb ki balls to become stronger and battle other players online.",
     },
     date: 2023,
     image: Dragon,
@@ -56,13 +61,15 @@ const Project = [
   {
     name: "Sera",
     description: {
-      fr: "Une API de manga qui permet d'accéder à une vaste sélection de titres populaires. " +
-          "Que vous soyez amateur de manga ou développeur d'application, SERA est facile à " +
-          "utiliser et vous permettra d'intégrer facilement des informations sur les mangas " +
-          "dans vos projets.",
-      en: "A manga API that provides access to a vast selection of popular titles. Whether " +
-          "you are a manga enthusiast or an application developer, SERA is easy to use and " +
-          "will allow you to seamlessly integrate manga information into your projects.",
+      fr:
+        "Une API de manga qui permet d'acceder a une vaste selection de titres populaires. " +
+        "Que vous soyez amateur de manga ou developpeur d'application, SERA est facile à " +
+        "utiliser et vous permettra d'integrer facilement des informations sur les mangas " +
+        "dans vos projets.",
+      en:
+        "A manga API that provides access to a vast selection of popular titles. Whether " +
+        "you are a manga enthusiast or an application developer, SERA is easy to use and " +
+        "will allow you to seamlessly integrate manga information into your projects.",
     },
     date: 2023,
     image: Sera,
@@ -72,10 +79,12 @@ const Project = [
   {
     name: "PortfolioV1",
     description: {
-      fr: "Mon Cv numérique qui vous parle de moi, de mes compétences, " +
-          "de mes projets et qui vous donnera je l'espère l'envie de travailler avec moi.",
-      en: "My digital resume that tells you about me, my skills, my projects, and hopefully " +
-          "will inspire you to work with me.",
+      fr:
+        "La premiere version de mon Cv numerique qui vous parle de moi, de mes competences, " +
+        "de mes projets et qui vous donnera je l'espere l'envie de travailler avec moi.",
+      en:
+        "My digital resume that tells you about me, my skills, my projects, and hopefully " +
+        "will inspire you to work with me.",
     },
     date: 2023,
     image: Portfolio,
