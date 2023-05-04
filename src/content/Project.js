@@ -4,6 +4,7 @@ import Out from "../assets/img/out.png";
 import Dragon from "../assets/img/dragonio.png";
 import Portfolio from "../assets/img/portfolio.png";
 import Sera from "../assets/img/sera.png";
+import PortfolioV2 from "../assets/img/portfoliov2.png";
 
 export const ProjectName = {
   name: "Mes Projets",
@@ -83,13 +84,27 @@ const Project = [
         "La premiere version de mon Cv numerique qui vous parle de moi, de mes competences, " +
         "de mes projets et qui vous donnera je l'espere l'envie de travailler avec moi.",
       en:
-        "My digital resume that tells you about me, my skills, my projects, and hopefully " +
-        "will inspire you to work with me.",
+        "The first version of my digital resume that tells you about myself, my skills, my " +
+        "projects, and hopefully, it will give you the desire to work with me.",
     },
     date: 2023,
     image: Portfolio,
     techno: ["JavaScript", "Html", "Css"],
     git: "https://github.com/Sail-Cpu/portfolio",
+  },
+  {
+    name: "PortfolioV2",
+    description: {
+      fr:
+        "La derniere version de mon Cv numerique qui vous parle de moi, de mes competences, " +
+        "de mes projets et qui vous donnera je l'espere l'envie de travailler avec moi.",
+      en: "The latest version of my digital resume that tells you about myself, my skills, " +
+          "my projects, and hopefully, it will give you the desire to work with me.",
+    },
+    date: 2023,
+    image: PortfolioV2,
+    techno: ["ReactJs", "Html", "Css", "Javascript", "Styled-component"],
+    git: "https://github.com/Sail-Cpu/portfolio-v2",
   },
 ];
 

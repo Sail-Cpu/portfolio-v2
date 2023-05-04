@@ -17,7 +17,7 @@ const StyledSocialMedia = styled.div`
     position: relative;
     bottom: 0;
     background-color: ${theme.colors.fourth};
-    width: 5px;
+    width: 3px;
     height: 140px;
   }
   svg {

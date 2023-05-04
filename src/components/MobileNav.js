@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
 import NavContent from "../content/Nav";
@@ -33,7 +33,7 @@ const StyledMobileNav = styled.nav`
     height: 25%;
     font-size: 30px;
     color: ${theme.colors.fourth};
-    h1{
+    h1 {
       cursor: pointer;
     }
   }
@@ -49,16 +49,22 @@ const StyledNavLink = styled.li`
   h2 {
     color: ${theme.colors.third};
     font-size: 18px;
+    font-weight: 100;
   }
   h1 {
     font-size: 22px;
     margin-top: 10px;
+    font-weight: 100;
+    transition: 0.2s ease-in-out;
+  }
+  h1:hover {
+    color: ${theme.colors.fifth};
   }
   cursor: pointer;
 `;
 
 const MobileNav = (props) => {
-  const [links, setLinks] = useState(NavContent.fr)
+  const [links, setLinks] = useState(NavContent.fr);
 
   function scrollToRef(ref) {
     window.scrollTo({ top: ref.current.offsetTop - 130, behavior: "smooth" });
@@ -90,7 +96,7 @@ const MobileNav = (props) => {
         </StyledNavLink>
       </ul>
       <ul className="pseudo-container">
-        <h1 onClick={() => scrollToRef(props.HeroRef)} >SAIL</h1>
+        <h1 onClick={() => scrollToRef(props.HeroRef)}>SAIL</h1>
       </ul>
     </StyledMobileNav>
   );

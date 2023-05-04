@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: ${theme.colors.secondary};
     font-family: 'Gugi', serif;
+    animation: 1s opacity ease-in-out;
   }
   nav{
     list-style: none;
@@ -50,6 +51,14 @@ const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar-thumb {
     background-color: ${theme.colors.fourth};
     border-radius: 20px;
+  }
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 

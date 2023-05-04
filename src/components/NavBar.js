@@ -44,10 +44,20 @@ const StyledNavBar = styled.nav`
     justify-content: space-between;
   }
   li {
-    span {
+    display: flex; 
+    .nb{
       color: ${theme.colors.third};
+      margin-right: 5px;
+    } 
+    .linkname{
+      transition: 0.2s ease-in-out;
     }
     cursor: pointer;
+  }
+  li:hover{
+    .linkname{
+      color: ${theme.colors.fifth};
+    }
   }
   @media screen and (max-width: 1290px) {
     padding: 0 25px;
@@ -97,10 +107,10 @@ const NavBar = (props) => {
       <StyledNavBar toTop={props.toTop}>
         <ul>
           <li onClick={() => scrollToRef(props.MeRef)}>
-            <span>01.</span> {links.link1.toUpperCase()}
+            <span className="nb">01.</span> <span className="linkname">{links.link1.toUpperCase()}</span>
           </li>
           <li onClick={() => scrollToRef(props.SkillsRef)}>
-            <span>02.</span> {links.link2.toUpperCase()}
+            <span className="nb">02.</span> <span className="linkname">{links.link2.toUpperCase()}</span>
           </li>
         </ul>
         <StyledLogo>
@@ -108,10 +118,10 @@ const NavBar = (props) => {
         </StyledLogo>
         <ul>
           <li onClick={() => scrollToRef(props.ProjectRef)}>
-            <span>03.</span> {links.link3.toUpperCase()}
+            <span className="nb">03.</span> <span className="linkname">{links.link3.toUpperCase()}</span>
           </li>
           <li onClick={() => scrollToRef(props.ContactRef)}>
-            <span>04.</span> {links.link4.toUpperCase()}
+            <span className="nb">04.</span> <span className="linkname">{links.link4.toUpperCase()}</span>
           </li>
         </ul>
       </StyledNavBar>

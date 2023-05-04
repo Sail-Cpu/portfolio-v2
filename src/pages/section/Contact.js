@@ -7,6 +7,8 @@ import SectionName from "../../components/SectionName";
 import Button from "../../components/Button";
 //Icon
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const StyledContact = styled.section`
   margin: 150px 0;
@@ -25,6 +27,15 @@ const StyledContact = styled.section`
     width: 45%;
     color: ${theme.colors.fourth};
     margin-bottom: 15px;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-top: 25px;
+    a{
+      margin: 0 10px;
+    }
   }
   @media screen and (max-width: 900px) {
     .text {
@@ -51,6 +62,18 @@ const Contact = (props) => {
       <a href={content.mail}>
         <Button label={MailOutlineIcon} />
       </a>
+      <div className="social">
+        <a target="_blank" href="https://github.com/Sail-Cpu" rel="noreferrer">
+          <GitHubIcon />
+        </a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/sofiane-lasoa-506678234/"
+          rel="noreferrer"
+        >
+          <LinkedInIcon />
+        </a>
+      </div>
     </StyledContact>
   );
 };

@@ -8,7 +8,7 @@ const StyledHeroBanner = styled.section`
   width: 100%;
   height: 100vh;
   min-height: 650px;
-  max-height: 820px;
+  max-height: 1000px;
   .hero-content {
     position: relative;
     top: ${(props) => props.scrollHero + "px"};

@@ -4,6 +4,7 @@ const theme = {
     secondary: "#FFFBEB",
     third: "#00FFD1",
     fourth: "#566285",
+    fifth: "#a5fff0",
   },
 };
 
