@@ -199,11 +199,17 @@ const StyledProjectContent = styled.div`
       padding: 0 20px;
       font-size: 30px;
       a {
+        display: flex;
+        align-items: center;
         transition: 0.4s ease;
         color: ${theme.colors.secondary};
+        margin-right: 10px;
       }
       a:hover {
         color: ${theme.colors.third};
+      }
+      span{
+        font-size: 17px;
       }
     }
   }
@@ -305,6 +311,12 @@ const Project = (props) => {
               <a target="_blank" href={activeProject.git} rel="noreferrer">
                 <GitHubIcon />
               </a>
+              {activeProject?.link &&
+                  <a target="_blank" href={activeProject?.link} rel="noreferrer">
+                    <span>Le Site</span>
+                  </a>
+              }
+
             </div>
           </div>
         </StyledProjectContent>

@@ -24,6 +24,7 @@ const Project = [
     image: Alcorn,
     techno: ["React", "JavaScript", "Html", "Scss"],
     git: "https://github.com/Sail-Cpu/alcorn-s_list",
+    link: "http://alcorn.sofianelasoa.fr/"
   },
   {
     name: "OUT.",
@@ -76,6 +77,7 @@ const Project = [
     image: Sera,
     techno: ["Node", "Express", "JavaScript"],
     git: "https://github.com/Sail-Cpu/Sera",
+    link: "http://seramanga.sofianelasoa.fr/"
   },
   {
     name: "PortfolioV1",
