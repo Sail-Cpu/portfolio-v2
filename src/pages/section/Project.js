@@ -220,6 +220,18 @@ const StyledProjectContent = styled.div`
       width: 100%;
       .project-image-content {
         display: flex;
+        .project-image-git{
+          display: flex;
+          a{
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            transition: 0.4s ease;
+          }
+          a:hover {
+            color: ${theme.colors.third};
+          }
+        }
       }
     }
     .project-content {
@@ -294,6 +306,11 @@ const Project = (props) => {
                 <a target="_blank" href={activeProject.git} rel="noreferrer">
                   <GitHubIcon />
                 </a>
+                {activeProject?.link &&
+                    <a target="_blank" href={activeProject?.link} rel="noreferrer">
+                      <span>Le Site</span>
+                    </a>
+                }
               </div>
             </div>
           </div>
