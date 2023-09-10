@@ -22,16 +22,22 @@ const StyledMe = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 30px;
-    margin-top: 100px;
+    margin-top: 150px;
     font-family: sans-serif;
     font-size: 16px;
   }
   @media screen and (max-width: 800px) {
     margin-top: 20px;
+    .me-value{
+      margin-top: 100px;
+    }
   }
   @media screen and (max-width: 600px) {
     .me-content {
       flex-direction: column;
+    }
+    .me-value{
+      margin-top: 70px;
     }
   }
 `;
