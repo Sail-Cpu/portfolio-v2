@@ -26,9 +26,10 @@ const StyledHeroBanner = styled.section`
   }
   .presentation-container {
     width: 60%;
-    font-size: 18px;
+    font-size: 19px;
     margin: 5px 0 20px 0;
     color: rgba(255, 251, 235, 0.5);
+    font-family: monospace;
   }
   @media screen and (max-width: 1050px) {
     .hero-content {

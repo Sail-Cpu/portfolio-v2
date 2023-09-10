@@ -15,9 +15,7 @@ const Project = [
     name: "Alcorn'List",
     description: {
       fr:
-        "Un catalogue de jeux vidéo presentant \n" +
-        "plus de 500 000 jeux, tries dans differentes \n" +
-        "categories.",
+        "Un catalogue de jeux vidéo présentant plus de 500 000 jeux, triés dans différentes catégories.",
       en: "A video game catalog featuring over 500,000 games, sorted into different categories.",
     },
     date: 2022,
@@ -30,9 +28,7 @@ const Project = [
     name: "OUT.",
     description: {
       fr:
-        "Une application qui te donne des conseils sur les vetements " +
-        "a porter en fonction de la meteo, tu choisis la localisation et " +
-        "elle te donne une liste de pantalons, de vestes, etc. que tu peux porter.",
+        "Une application qui vous donne des conseils sur les vêtements à porter en fonction de la météo. Vous sélectionnez votre emplacement, et elle vous propose une liste de pantalons, de vestes, etc., que vous pouvez porter.",
       en:
         "An application that gives you advice on what clothes to wear based on the weather. " +
         "You choose the location and it provides you with a list of pants, jackets, etc. that you can wear.",
@@ -46,10 +42,7 @@ const Project = [
     name: "Dragon.io",
     description: {
       fr:
-        "Une adaptation d'Agar.io basee sur l'univers de Dragon Ball Z. Le jeu " +
-        "met en scène les personnages emblematiques de la serie, tels que Goku, Vegeta " +
-        "ou Freezer, et vous permet d'absorber des boules de ki pour devenir plus fort et " +
-        "combattre d'autres joueurs en ligne.",
+        "Une adaptation d'Agar.io basée sur l'univers de Dragon Ball Z. Le jeu met en scène les personnages emblématiques de la série, comme Goku, Vegeta, ou Freezer, vous permettant d'absorber des boules de ki pour devenir plus fort et affronter d'autres joueurs en ligne.",
       en:
         "An adaptation of Agar.io based on the Dragon Ball Z universe. The game features " +
         "iconic characters from the series such as Goku, Vegeta, or Frieza, and allows " +
@@ -64,10 +57,7 @@ const Project = [
     name: "Sera",
     description: {
       fr:
-        "Une API de manga qui permet d'acceder a une vaste selection de titres populaires. " +
-        "Que vous soyez amateur de manga ou developpeur d'application, SERA est facile à " +
-        "utiliser et vous permettra d'integrer facilement des informations sur les mangas " +
-        "dans vos projets.",
+        "Une API de manga qui donne accès à une vaste sélection de titres populaires. Que vous soyez un amateur de manga ou un développeur d'applications, SERA est facile à utiliser et vous permettra d'intégrer aisément des informations sur les mangas dans vos projets.",
       en:
         "A manga API that provides access to a vast selection of popular titles. Whether " +
         "you are a manga enthusiast or an application developer, SERA is easy to use and " +
@@ -83,8 +73,7 @@ const Project = [
     name: "PortfolioV1",
     description: {
       fr:
-        "La premiere version de mon Cv numerique qui vous parle de moi, de mes competences, " +
-        "de mes projets et qui vous donnera je l'espere l'envie de travailler avec moi.",
+        "La première version de mon CV numérique qui vous présente ma personne, mes compétences, mes projets, et qui, je l'espère, suscitera votre intérêt pour une collaboration.",
       en:
         "The first version of my digital resume that tells you about myself, my skills, my " +
         "projects, and hopefully, it will give you the desire to work with me.",
@@ -98,8 +87,7 @@ const Project = [
     name: "PortfolioV2",
     description: {
       fr:
-        "La derniere version de mon Cv numerique qui vous parle de moi, de mes competences, " +
-        "de mes projets et qui vous donnera je l'espere l'envie de travailler avec moi.",
+        "La dernière version de mon CV numérique qui vous présente ma personne, mes compétences, mes projets, et qui, je l'espère, suscitera votre désir de collaborer avec moi.",
       en: "The latest version of my digital resume that tells you about myself, my skills, " +
           "my projects, and hopefully, it will give you the desire to work with me.",
     },

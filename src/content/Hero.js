@@ -3,7 +3,7 @@ const Hero = {
     name: "Sofiane Lasoa",
     job: "Je suis Developpeur Web",
     presentation:
-      "Veritablement passionne par le developpement web, je suis actuellement a la recherche d'une alternance dans ce domaine.",
+      "Véritablement passionné par le développement web, je suis actuellement à la recherche d'une alternance dans ce domaine",
     button: "Mon Cv",
     buttonLink:
       "https://drive.google.com/file/d/1oUJrcy26bre62UjN0HjOKIh-KsVCx9U6/view?usp=sharing",

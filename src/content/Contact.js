@@ -1,7 +1,7 @@
 const Contact = {
   fr: {
     name: "Me Contacter",
-    text: "En ce moment, je suis a la recherche d'experience dans l'univers du developpement web. Si mon profil vous interesse, n'hesitez pas a me contacter.",
+    text: "Actuellement, je suis à la recherche d'expérience dans le domaine du développement web. Si mon profil vous intéresse, n'hésitez pas à me contacter.",
     mail: "mailto:sofiane.lasoa1@hotmail.com",
   },
   en: {

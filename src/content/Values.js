@@ -2,23 +2,23 @@ const Values = {
   fr: [
     {
       title: "Autonome",
-      text: "Je sais observer et me renseigner pour effectuer mes taches",
+      text: "Je suis capable d'observer et de me renseigner pour accomplir mes tâches.",
     },
     {
       title: "Perseverant",
-      text: "Toujours sur le coup pour debugguer des situations",
+      text: "Toujours prêt à résoudre des problèmes et à déboguer des situations.",
     },
     {
       title: "Curieux",
-      text: "Constamment en apprentissage sur les technologies JavaScript",
+      text: "Je suis constamment en apprentissage des technologies JavaScript",
     },
     {
       title: "Ambitieux",
-      text: "J’ai confiance en mes capacites et je desire progresser",
+      text: "J'ai confiance en mes capacités et je souhaite progresser.",
     },
     {
       title: "Adaptable",
-      text: "Je m'adapte selon les projets et les codebases",
+      text: "Je m'adapte en fonction des projets et des codebases.",
     },
   ],
   en: [

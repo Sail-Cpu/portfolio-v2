@@ -27,6 +27,7 @@ const StyledContact = styled.section`
     width: 45%;
     color: ${theme.colors.fourth};
     margin-bottom: 15px;
+    font-family: sans-serif;
   }
   .social {
     display: flex;

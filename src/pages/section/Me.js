@@ -16,12 +16,15 @@ const StyledMe = styled.section`
     display: flex;
     align-items: center;
     width: 100%;
+    font-family: sans-serif;
   }
   .me-value {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 30px;
     margin-top: 100px;
+    font-family: sans-serif;
+    font-size: 16px;
   }
   @media screen and (max-width: 800px) {
     margin-top: 20px;
@@ -52,8 +55,8 @@ const StyledPictureContainer = styled.div`
   position: absolute;
   top: 45px;
   left: 60%;
-  width: 25%;
-  height: 320px;
+  width: 30%;
+  height: 400px;
   border: 3px solid ${theme.colors.secondary};
   .picture {
     position: absolute;
@@ -126,8 +129,8 @@ const Me = (props) => {
   return (
     <StyledMe ref={props.position}>
       <SectionName nb="01" name={content.title} />
-      <StyledMeBar width="55" left />
-      <StyledMeBar width="10" right />
+      <StyledMeBar width="56" left />
+      <StyledMeBar width="6" right />
       <div className="me-content">
         <StyledText>
           {content.paragrah.map((par, idx) => {

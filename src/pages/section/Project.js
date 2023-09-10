@@ -169,6 +169,7 @@ const StyledProjectContent = styled.div`
       background-color: ${theme.colors.primary};
       box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.25);
       color: ${theme.colors.fourth};
+      font-family: sans-serif;
     }
     .techno {
       display: flex;
