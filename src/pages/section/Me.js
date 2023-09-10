@@ -22,7 +22,7 @@ const StyledMe = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 30px;
-    margin-top: 150px;
+    margin-top: 170px;
     font-family: sans-serif;
     font-size: 16px;
   }
