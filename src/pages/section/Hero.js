@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HeroContent from "../../content/Hero";
 //Components
 import Button from "../../components/Button";
+import theme from "../../styles/Theme";
 
 const StyledHeroBanner = styled.section`
   width: 100%;
@@ -26,9 +27,9 @@ const StyledHeroBanner = styled.section`
   }
   .presentation-container {
     width: 60%;
-    font-size: 19px;
+    font-size: 20px;
     margin: 5px 0 20px 0;
-    color: rgba(255, 251, 235, 0.5);
+    color: ${theme.colors.fourth};
     font-family: monospace;
   }
   @media screen and (max-width: 1050px) {

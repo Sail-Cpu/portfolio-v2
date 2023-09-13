@@ -3,7 +3,7 @@ const theme = {
     primary: "#263159",
     secondary: "#FFFBEB",
     third: "#00FFD1",
-    fourth: "#566285",
+    fourth: "rgba(255, 251, 235, 0.5)",
     fifth: "#a5fff0",
   },
 };

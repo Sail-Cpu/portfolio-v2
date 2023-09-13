@@ -12,6 +12,22 @@ export const ProjectName = {
 
 const Project = [
   {
+    name: "Sera",
+    description: {
+      fr:
+          "Une API de manga qui donne accès à une vaste sélection de titres populaires. Que vous soyez un amateur de manga ou un développeur d'applications, SERA est facile à utiliser et vous permettra d'intégrer aisément des informations sur les mangas dans vos projets.",
+      en:
+          "A manga API that provides access to a vast selection of popular titles. Whether " +
+          "you are a manga enthusiast or an application developer, SERA is easy to use and " +
+          "will allow you to seamlessly integrate manga information into your projects.",
+    },
+    date: 2023,
+    image: Sera,
+    techno: ["Node", "Express", "JavaScript"],
+    git: "https://github.com/Sail-Cpu/Sera",
+    link: "http://seramanga.sofianelasoa.fr/"
+  },
+  {
     name: "Alcorn'List",
     description: {
       fr:
@@ -52,22 +68,6 @@ const Project = [
     image: Dragon,
     techno: ["TypeScript", "Html", "Css", "Babel"],
     git: "https://gitlab.univ-lille.fr/sofiane.lasoa.etu/sae-2023-groupei-lasoa-gomis",
-  },
-  {
-    name: "Sera",
-    description: {
-      fr:
-        "Une API de manga qui donne accès à une vaste sélection de titres populaires. Que vous soyez un amateur de manga ou un développeur d'applications, SERA est facile à utiliser et vous permettra d'intégrer aisément des informations sur les mangas dans vos projets.",
-      en:
-        "A manga API that provides access to a vast selection of popular titles. Whether " +
-        "you are a manga enthusiast or an application developer, SERA is easy to use and " +
-        "will allow you to seamlessly integrate manga information into your projects.",
-    },
-    date: 2023,
-    image: Sera,
-    techno: ["Node", "Express", "JavaScript"],
-    git: "https://github.com/Sail-Cpu/Sera",
-    link: "http://seramanga.sofianelasoa.fr/"
   },
   {
     name: "PortfolioV1",
