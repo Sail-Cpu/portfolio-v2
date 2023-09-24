@@ -24,7 +24,7 @@ const Project = [
     date: 2023,
     image: Sera,
     techno: ["Node", "Express", "JavaScript"],
-    git: "https://github.com/Sail-Cpu/Sera",
+    git: "https://github.com/Sail-Cpu/manga.git",
     link: "http://seramanga.sofianelasoa.fr/"
   },
   {

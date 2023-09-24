@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
 //Icons
+import MailIcon from "@mui/icons-material/Mail";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -46,6 +47,9 @@ const StyledSocialMedia = styled.div`
 const SocialMedia = () => {
   return (
     <StyledSocialMedia>
+        <a href="mailto:sofiane.lasoa1@hotmail.com">
+            <MailIcon />
+        </a>
       <a target="_blank" href="https://github.com/Sail-Cpu" rel="noreferrer">
         <GitHubIcon />
       </a>

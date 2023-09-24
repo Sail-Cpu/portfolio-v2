@@ -29,7 +29,7 @@ const Value = (props) => {
   return (
     <StyledValue>
       <div className="value-title">
-        <img src={Logo} alt="logo" />
+        <img src={props.logo} alt="logo" />
         <h1>{props.title}</h1>
       </div>
       <div className="value-text">

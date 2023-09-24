@@ -1,5 +1,5 @@
 import fr from "../assets/flags/fr.png";
-import en from "../assets/flags/en.png";
+import us from "../assets/flags/us.png";
 
 const Language = [
   {
@@ -8,7 +8,7 @@ const Language = [
   },
   {
     name: "en",
-    flag: en,
+    flag: us,
   },
 ];
 

@@ -150,7 +150,7 @@ const Me = (props) => {
       </div>
       <div className="me-value">
         {values.map((value, idx) => {
-          return <Value key={idx} title={value.title} text={value.text} />;
+          return <Value key={idx} logo={value.icon} title={value.title} text={value.text} />;
         })}
       </div>
     </StyledMe>
