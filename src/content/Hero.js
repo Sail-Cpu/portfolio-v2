@@ -6,7 +6,7 @@ const Hero = {
       "Véritablement passionné par le développement web, je suis actuellement à la recherche d'une alternance dans ce domaine",
     button: "Mon Cv",
     buttonLink:
-      "https://drive.google.com/file/d/1UqqDY9DFPYSgpV1uZRbzimIG6wx7xiu9/view?usp=sharing",
+      "https://drive.google.com/file/d/1cG4czC_LCurBq78-lGom6OsatouCFFOV/view?usp=sharing",
   },
   en: {
     name: "Sofiane Lasoa",
@@ -15,7 +15,7 @@ const Hero = {
       "I am truly passionate about web development and am currently looking for an internship in this field.",
     button: "Resume",
     buttonLink:
-      "https://drive.google.com/file/d/1UqqDY9DFPYSgpV1uZRbzimIG6wx7xiu9/view?usp=sharing",
+      "https://drive.google.com/file/d/1cG4czC_LCurBq78-lGom6OsatouCFFOV/view?usp=sharing",
   },
 };
 
