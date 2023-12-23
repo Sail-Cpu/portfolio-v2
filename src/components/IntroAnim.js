@@ -1,6 +1,7 @@
 import React, {createRef, useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
 import theme from "../styles/Theme";
+import MyPseudo from "../content/Pseudo"
 
 const StyledIntroAnim = styled.div`
   z-index: 101;
@@ -55,7 +56,7 @@ const StyledIntroAnim = styled.div`
 `
 
 const IntroAnim = () => {
-    const myName = "Sofiane Alexandre Ismael Lasoa";
+    const myName = MyPseudo.name;
 
     const [names, setNames] = useState([]);
     const [hidden, setHidden] = useState(false);
@@ -98,7 +99,7 @@ const IntroAnim = () => {
         let name = myName.split(' ');
         let tab = [];
         for(let i = 0; i < name.length; i++){
-                tab.push(name[i]);
+            tab.push(name[i]);
         }
         setNames(tab);
         setTimeout(() => {
