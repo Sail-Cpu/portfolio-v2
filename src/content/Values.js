@@ -13,7 +13,7 @@ const Values = {
     },
     {
       icon: Muscle,
-      title: "Perseverant",
+      title: "Persévérant",
       text: "Toujours prêt à résoudre des problèmes et à déboguer des situations.",
     },
     {
