@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
+import IntroAnim from "./components/IntroAnim";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -27,6 +28,7 @@ function App() {
     <AppContainer>
       <GlobalStyle />
       <Main>
+          <IntroAnim />
         <Home />
       </Main>
     </AppContainer>
