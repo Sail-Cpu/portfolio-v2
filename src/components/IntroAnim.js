@@ -14,24 +14,24 @@ const StyledIntroAnim = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${theme.colors.primary};
-  transition: 1s ease;
+  transition: 0.5s ease;
   .name{
     position: absolute;
     display: flex;
     div{
       font-size: 35px;
-      transition: 1s ease;
+      transition: 0.5s ease;
       span{
         position: relative;
         top: 0;
         color: ${theme.colors.fifth};
       }
       span:nth-child(1){
-        animation: start 1s ease-in-out;
+        animation: start 0.5s ease-in-out;
         color: ${theme.colors.secondary};
       }
       .fade{
-        animation: fadeout 1s ease;
+        animation: fadeout 0.5s ease;
       }
       @keyframes fadeout{
         0%{
@@ -104,19 +104,19 @@ const IntroAnim = () => {
         setNames(tab);
         setTimeout(() => {
             setPreHidden(true);
-        }, 2000)
+        }, 1500)
         setTimeout(() => {
             setHidden(true);
-        }, 3000)
+        }, 2000)
         setTimeout(() => {
             setMove(true);
-        }, 4000)
+        }, 2500)
         setTimeout(() => {
             setToTheBottom(true);
-        }, 4400)
+        }, 2700)
         setTimeout(() => {
             SetDropAll(true);
-        }, 5500)
+        }, 4000)
     }, [])
 
     useEffect(() => {
