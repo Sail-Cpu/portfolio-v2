@@ -27,7 +27,7 @@ const StyledIntroAnim = styled.div`
         color: ${theme.colors.fifth};
       }
       span:nth-child(1){
-        animation: start 0.5s ease-in-out;
+        animation: start 0.6s ease-in-out;
         color: ${theme.colors.secondary};
       }
       .fade{
@@ -64,6 +64,7 @@ const IntroAnim = () => {
     const [move, setMove] = useState(false);
     const [toTheBottom, setToTheBottom] = useState(false);
     const [dropAll, SetDropAll] = useState(false);
+    const [drop, SetDrop] = useState(false);
 
     const pageRef = useRef();
     const [pageSize, setPageSize] = useState();
@@ -101,10 +102,13 @@ const IntroAnim = () => {
         for(let i = 0; i < name.length; i++){
             tab.push(name[i]);
         }
-        setNames(tab);
+        setTimeout(() => {
+            setNames(tab);
+        }, 100)
         setTimeout(() => {
             setPreHidden(true);
         }, 1500)
+
         setTimeout(() => {
             setHidden(true);
         }, 2000)
@@ -117,7 +121,10 @@ const IntroAnim = () => {
         setTimeout(() => {
             SetDropAll(true);
         }, 4000)
-    }, [])
+        setTimeout(() => {
+            SetDrop(true);
+        }, 4500)
+    }, [myName])
 
     useEffect(() => {
         if(pageRef.current){
@@ -154,6 +161,8 @@ const IntroAnim = () => {
         setDivWidths(table);
     }, [names]);
 
+    console.log(divWidths)
+
     function rightBottom(){
         if(move && !toTheBottom){
             const right = (pageSize?.width/2) - (nameSize?.width / 2);
@@ -172,10 +181,9 @@ const IntroAnim = () => {
         return {};
     }
 
-
     return(
         <>
-            {windowSize.width > 700 &&
+            {windowSize.width > 700 && !drop &&
                 <StyledIntroAnim ref={pageRef} style={{opacity: dropAll ? 0 : 1}}>
                     <div className="name" ref={nameContainer} style={rightBottom()}>
                         {

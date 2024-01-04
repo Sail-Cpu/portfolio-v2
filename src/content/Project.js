@@ -82,6 +82,7 @@ const Project = [
     image: Portfolio,
     techno: ["JavaScript", "Html", "Css"],
     git: "https://github.com/Sail-Cpu/portfolio",
+    link: "http://portfoliov1.sofianelasoa.fr/",
   },
   {
     name: "PortfolioV2",
