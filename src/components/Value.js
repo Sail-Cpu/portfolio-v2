@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
-import Logo from "../assets/img/logo.png";
 
 const StyledValue = styled.div`
   width: 100%;

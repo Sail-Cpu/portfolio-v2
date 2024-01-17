@@ -74,7 +74,7 @@ const StyledLogo = styled.div`
   width: 15%;
   height: 100%;
   img {
-    width: 60px;
+    width: 50px;
   }
   @media screen and (max-width: 1290px) {
     width: 10%;
