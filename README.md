@@ -42,6 +42,50 @@ Happy coding! 🌟
 * [![Sass][Sass]][Sass-url]
 * [![Javascipt][Javascript]][Javascript-url]
 
+## Getting Started
+<br />
+🚀 Follow these steps to get the project up and running on your local machine.
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (Version 12 or higher)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+### Installation
+
+1. **Fork the repository**
+2. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/your-username/portfolio-v2.git
+   ```
+   
+3. **Navigate to the project directory:**
+
+    ```bash
+    cd portfolio-v2
+    ```
+
+4. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+   
+### Running Locally
+
+1. **Start the development server:**
+
+    ```bash
+    npm start
+    ```
+
+2. **Open your browser:**
+
+   Visit [http://localhost:3000](http://localhost:3000) to view your portfolio.
+
 [Styled-components]: https://img.shields.io/badge/Styled%20Components-35495E?style=for-the-badge&logo=styled-components&logoColor=#bf4080
 [Styled-Components-url]: https://styled-components.com/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
