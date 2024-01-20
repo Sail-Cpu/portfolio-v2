@@ -16,6 +16,7 @@
 </div>
 
 ## About The Project
+<br />
 
 ![Portfolio Picture](./src/assets/img/portfoliov2.png "portfolio")
 
@@ -37,3 +38,15 @@ Happy coding! 🌟
 ### Built With
 
 * [![React][React.js]][React-url]
+* [![React][Styled-components]][Styled-Components-url]
+* [![Sass][Sass]][Sass-url]
+* [![Javascipt][Javascript]][Javascript-url]
+
+[Styled-components]: https://img.shields.io/badge/Styled%20Components-35495E?style=for-the-badge&logo=styled-components&logoColor=#bf4080
+[Styled-Components-url]: https://styled-components.com/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Sass]: https://img.shields.io/badge/Sass-000000?style=for-the-badge&logo=sass&logoColor=#bf4080
+[Sass-url]: https://sass-lang.com/
+[Javascript]: https://img.shields.io/badge/Javascript-563D7C?style=for-the-badge&logo=javascript
+[Javascript-url]: https://developer.mozilla.org/fr/docs/Web/JavaScript
