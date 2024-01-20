@@ -5,8 +5,8 @@
     <img src="src/assets/img/logo.png" alt="Logo" width="100" height="100">
   </a>
 
-<h3 align="center">My Portfolio</h3>
-  <p align="center">
+<h3 align="center" style="font-size: 30px">My Portfolio</h3>
+  <p align="center" style="font-size: 18px">
     An awesome portfolio template
     <br />
     <a href="http://portfolio.sofianelasoa.fr/">View Demo</a>
