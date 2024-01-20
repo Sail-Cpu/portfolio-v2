@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="src/assets/img/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/img/logo.png" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">My Portfolio</h3>
@@ -10,8 +10,6 @@
     An awesome portfolio template
     <br />
     <a href="http://portfolio.sofianelasoa.fr/">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Documentation</a>
   </p>
 </div>
 
@@ -85,6 +83,8 @@ Make sure you have the following installed on your machine:
 2. **Open your browser:**
 
    Visit [http://localhost:3000](http://localhost:3000) to view your portfolio.
+
+To personalize the portfolio, open all the files and replace all my information with yours
 
 [Styled-components]: https://img.shields.io/badge/Styled%20Components-35495E?style=for-the-badge&logo=styled-components&logoColor=#bf4080
 [Styled-Components-url]: https://styled-components.com/
