@@ -109,6 +109,7 @@ const StyledProjectContent = styled.div`
   .project-image {
     width: 60%;
     height: 100%;
+    max-height: 250px;
     background-image: url("${(props) => props.active.image}");
     background-size: cover;
     background-position: center;
