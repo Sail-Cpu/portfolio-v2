@@ -171,6 +171,10 @@ const StyledProjectContent = styled.div`
       box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.25);
       color: ${theme.colors.fourth};
       font-family: sans-serif;
+      p{
+        margin-top: 5px;
+        color: #fff;
+      }
     }
     .techno {
       display: flex;
@@ -319,7 +323,19 @@ const Project = (props) => {
             <div className="project-title">
               <h1>{activeProject.name}</h1>
             </div>
-            <div className="project-description">{activeProjectDesc}</div>
+            <div className="project-description">
+              {activeProjectDesc}
+              <p>
+                Savoir-être:
+                {activeProject?.values &&
+                  activeProject?.values.map((value, idx) => {
+                    return(
+                        <span> {value} / </span>
+                    )
+                  })
+                }
+              </p>
+            </div>
             <div className="techno">
               {activeProject.techno &&
                 activeProject.techno.map((project, idx) => {

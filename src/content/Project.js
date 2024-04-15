@@ -27,6 +27,7 @@ const Project = [
     date: 2023,
     image: Sera,
     techno: ["Node", "Express", "JavaScript", "Psql"],
+    values: ["Créativité", "Résolution de problèmes"],
     git: "https://github.com/Sail-Cpu/manga.git",
     link: "http://seramanga.sofianelasoa.fr/"
   },
@@ -39,7 +40,8 @@ const Project = [
     },
     date: 2022,
     image: Alcorn,
-    techno: ["React", "JavaScript", "Html", "Scss"],
+    techno: ["React", "JavaScript", "Html", "Scss", "Figma"],
+    values: ["Créativité", "Résolution de problèmes"],
     git: "https://github.com/Sail-Cpu/alcorn-s_list",
     link: "http://alcorn.sofianelasoa.fr/"
   },
@@ -54,7 +56,8 @@ const Project = [
     },
     date: 2022,
     image: Out,
-    techno: ["React", "JavaScript", "Html", "Scss"],
+    techno: ["React", "JavaScript", "Html", "Scss", "Figma"],
+    values: ["Créativité", "Résolution de problèmes"],
     git: "https://github.com/Sail-Cpu/out",
   },
   {
@@ -70,6 +73,7 @@ const Project = [
     date: 2023,
     image: Dragon,
     techno: ["TypeScript", "Html", "Css", "Babel"],
+    values: ["Créativité", "Communication", "Résolution de problèmes"],
     git: "https://gitlab.univ-lille.fr/sofiane.lasoa.etu/sae-2023-groupei-lasoa-gomis",
   },
   {
@@ -84,6 +88,7 @@ const Project = [
     date: 2023,
     image: Portfolio,
     techno: ["JavaScript", "Html", "Css"],
+    values: ["Créativité", "Communication"],
     git: "https://github.com/Sail-Cpu/portfolio",
     link: "http://portfoliov1.sofianelasoa.fr/",
   },
@@ -97,7 +102,8 @@ const Project = [
     },
     date: 2023,
     image: PortfolioV2,
-    techno: ["ReactJs", "Html", "Css", "Javascript", "Styled-component"],
+    techno: ["ReactJs", "Html", "Css", "Javascript", "Styled-component", "Figma"],
+    values: ["Créativité", "Communication"],
     git: "https://github.com/Sail-Cpu/portfolio-v2",
   },
   {
@@ -110,6 +116,7 @@ const Project = [
     date: 2024,
     image: Pizzaland,
     techno: ["Java", "Apache-tomcat", "html", "css", "Psql"],
+    values: ["Collaboration", "Résolution de problèmes", "Communication"],
     git: "https://gitlab.univ-lille.fr/aymeri.tourneur.etu/s4.a02.1",
   },
   {
@@ -121,7 +128,8 @@ const Project = [
     },
     date: 2023,
     image: Hunter,
-    techno: ["Java", "JavaFx"],
+    techno: ["Java", "JavaFx", "Figma"],
+    values: ["Collaboration", "Créativité", "Résolution de problèmes", "Adaptabilité"],
     git: "https://gitlab.univ-lille.fr/sae302/2023/H3_SAE3A",
   },
   {
@@ -134,6 +142,7 @@ const Project = [
     date: 2024,
     image: Jspace,
     techno: ["Javascript", "HTML / CSS", "Socket.io", "Figma"],
+    values: ["Collaboration", "Créativité", "Organisation", "Gestion du temps"],
     git: "https://gitlab.univ-lille.fr/aymeri.tourneur.etu/sae-2024-groupei-tourneur-duplouy-lasoa",
   },
 ];
