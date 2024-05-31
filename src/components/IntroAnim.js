@@ -7,7 +7,7 @@ const StyledIntroAnim = styled.div`
   z-index: 101;
   opacity: 1;
   position: fixed;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   left: 0;
