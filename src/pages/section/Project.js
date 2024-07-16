@@ -6,6 +6,7 @@ import theme from "../../styles/Theme";
 import AllProject, { ProjectName } from "../../content/Project";
 //Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ReactGA from "react-ga4";
 
 const StyledProject = styled.section`
   position: relative;
@@ -258,6 +259,16 @@ const Project = (props) => {
   const [activeProject, setActiveProject] = useState(AllProject[activeIdx]);
   const [activeProjectDesc, setActiveProjectDesc] = useState("");
 
+  const clickProject = (name) => {
+    ReactGA.event({
+      category: 'project',
+      action: 'Clicked link',
+      item_name: name.toLowerCase(),
+      label: 'miaw project',
+      value: 1
+    });
+  }
+
   useEffect(() => {
     setActiveProject(AllProject[activeIdx]);
     if (props.language.name === "fr")
@@ -325,16 +336,6 @@ const Project = (props) => {
             </div>
             <div className="project-description">
               {activeProjectDesc}
-              <p>
-                Savoir-être:
-                {activeProject?.values &&
-                  activeProject?.values.map((value, idx) => {
-                    return(
-                        <span> {value} / </span>
-                    )
-                  })
-                }
-              </p>
             </div>
             <div className="techno">
               {activeProject.techno &&
@@ -347,7 +348,7 @@ const Project = (props) => {
                 <GitHubIcon />
               </a>
               {activeProject?.link &&
-                  <a target="_blank" href={activeProject?.link} rel="noreferrer">
+                  <a target="_blank" onClick={() => clickProject(activeProject.name)} href={activeProject?.link} rel="noreferrer">
                     <span>Le Site</span>
                   </a>
               }

@@ -5,7 +5,7 @@ import MeContent from "../../content/Me";
 import Values from "../../content/Values";
 //Components
 import SectionName from "../../components/SectionName";
-import Picture from "../../assets/img/picture.jpg";
+import Picture from "../../assets/img/picture.png";
 import Value from "../../components/Value";
 
 const StyledMe = styled.section`

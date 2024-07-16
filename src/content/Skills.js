@@ -5,6 +5,8 @@ import TsIcon from "../assets/icons/ts.png";
 import htmlIcon from "../assets/icons/html.png";
 import cssIcon from "../assets/icons/css.png";
 import scssIcon from "../assets/icons/scss.png";
+import nextjs from "../assets/icons/next-js.png";
+import tailwind from "../assets/icons/tailwind.png";
 //Tools
 import VsIcon from "../assets/icons/vs.png";
 import githubIcon from "../assets/icons/github.png";
@@ -21,6 +23,14 @@ export const TechnoSkills = [
   {
     name: "react js",
     icon: ReactIcon,
+  },
+  {
+    name: "next js",
+    icon: nextjs,
+  },
+  {
+    name: "tailwind",
+    icon: tailwind,
   },
   {
     name: "javascript",

@@ -161,8 +161,6 @@ const IntroAnim = () => {
         setDivWidths(table);
     }, [names]);
 
-    console.log(divWidths)
-
     function rightBottom(){
         if(move && !toTheBottom){
             const right = (pageSize?.width/2) - (nameSize?.width / 2);

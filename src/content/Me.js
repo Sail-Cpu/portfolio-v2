@@ -1,4 +1,4 @@
-import Picture from "../assets/img/picture.jpg";
+import Picture from "../assets/img/picture.png";
 
 const Me = {
   fr: {
