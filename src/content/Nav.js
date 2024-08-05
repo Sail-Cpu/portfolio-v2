@@ -8,7 +8,7 @@ const Nav = {
   en: {
     link1: "To know me",
     link2: "Skills",
-    link3: "Project",
+    link3: "Projects",
     link4: "Contact me",
   },
 };

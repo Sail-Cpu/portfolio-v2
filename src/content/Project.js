@@ -8,8 +8,9 @@ import PortfolioV2 from "../assets/img/portfoliov2.png";
 import Miaw from "../assets/img/miaw.png";
 
 export const ProjectName = {
-  name: "Mes Projets",
-};
+  fr: "Mes Projets",
+  en: "My Projects"
+}; 
 
 const Project = [
   {

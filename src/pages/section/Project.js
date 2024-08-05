@@ -256,6 +256,7 @@ const StyledProjectContent = styled.div`
 
 const Project = (props) => {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [name, setName] = useState(ProjectName.fr);
   const [activeProject, setActiveProject] = useState(AllProject[activeIdx]);
   const [activeProjectDesc, setActiveProjectDesc] = useState("");
 
@@ -272,8 +273,10 @@ const Project = (props) => {
   useEffect(() => {
     setActiveProject(AllProject[activeIdx]);
     if (props.language.name === "fr")
+      setName(ProjectName.fr)
       setActiveProjectDesc(activeProject.description.fr);
     if (props.language.name === "en")
+      setName(ProjectName.en)
       setActiveProjectDesc(activeProject.description.en);
   }, [
     activeIdx,
@@ -285,7 +288,7 @@ const Project = (props) => {
   return (
     <StyledProject ref={props.position}>
       <StyledProjectTop>
-        <SectionName nb="03" name={ProjectName.name} />
+        <SectionName nb="03" name={name} />
         <div className="project-bar-left"></div>
         <div className="project-bar-right"></div>
       </StyledProjectTop>
