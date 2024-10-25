@@ -7,7 +7,7 @@
 
 <h3 align="center" style="font-size: 30px">My Portfolio</h3>
   <p align="center" style="font-size: 18px">
-    An awesome portfolio template
+    An awesome portfolio
     <br />
     <a href="http://portfolio.sofianelasoa.fr/">View Demo</a>
   </p>
