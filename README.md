@@ -84,7 +84,7 @@ Make sure you have the following installed on your machine:
 
    Visit [http://localhost:3000](http://localhost:3000) to view your portfolio.
 
-To personalize the portfolio, open all the files and replace all my information with yours
+To personalize the portfolio, open all the contents files and replace all my information with yours
 
 [Styled-components]: https://img.shields.io/badge/Styled%20Components-35495E?style=for-the-badge&logo=styled-components&logoColor=#bf4080
 [Styled-Components-url]: https://styled-components.com/
