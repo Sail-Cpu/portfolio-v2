@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
-import MeContent from "../../content/Me";
-import Values from "../../content/Values";
 //Components
 import SectionName from "../../components/SectionName";
-import Picture from "../../assets/img/picture.png";
 import Value from "../../components/Value";
+import useContent from "../../hook/useContent";
+import { firebaseContext } from "../../contexts/firebaseContext";
 
 const StyledMe = styled.section`
   position: relative;
@@ -57,6 +56,7 @@ const StyledMeBar = styled.div`
     top: 35px;
   }
 `;
+
 const StyledPictureContainer = styled.div`
   position: absolute;
   top: 45px;
@@ -70,7 +70,7 @@ const StyledPictureContainer = styled.div`
     right: -15px;
     width: 100%;
     height: 100%;
-    background-image: url("${Picture}");
+    background-image: url("/uploads/img/picture.png");
     background-size: cover;
     background-position: center;
   }
@@ -117,42 +117,41 @@ const StyledText = styled.div`
   }
 `;
 
-const Me = (props) => {
-  const [content, setContent] = useState(MeContent.fr);
-  const [values, setValues] = useState(Values.fr);
+const path = "/uploads/icons"
 
-  useEffect(() => {
-    if (props.language.name === "fr") {
-      setContent(MeContent.fr);
-      setValues(Values.fr);
-    }
-    if (props.language.name === "en") {
-      setContent(MeContent.en);
-      setValues(Values.en);
-    }
-  }, [props.language]);
+const Me = (props) => {
+
+  const {userData} = useContext(firebaseContext);
+
+  const content = useContent(userData, props.language, "me")
+  const values = useContent(userData, props.language, "values")
 
   return (
     <StyledMe ref={props.position}>
-      <SectionName nb="01" name={content.title} />
-      <StyledMeBar width="56" left />
-      <StyledMeBar width="6" right />
-      <div className="me-content">
-        <StyledText>
-          {content.paragrah.map((par, idx) => {
-            return <p key={idx}>{par}</p>;
-          })}
-        </StyledText>
-        <StyledPictureContainer>
-          <div className="picture"></div>
-          <div className="picture-fond"></div>
-        </StyledPictureContainer>
-      </div>
-      <div className="me-value">
-        {values.map((value, idx) => {
-          return <Value key={idx} logo={value.icon} title={value.title} text={value.text} />;
-        })}
-      </div>
+      {
+        content && values &&
+          <>
+            <SectionName nb="01" name={content.title} />
+            <StyledMeBar width="56" left />
+            <StyledMeBar width="6" right />
+            <div className="me-content">
+              <StyledText>
+                {content.paragrah.map((par, idx) => {
+                  return <p key={idx}>{par}</p>;
+                })}
+              </StyledText>
+              <StyledPictureContainer>
+                <div className="picture"></div>
+                <div className="picture-fond"></div>
+              </StyledPictureContainer>
+            </div>
+            <div className="me-value">
+              {values.map((value, idx) => {
+                return <Value key={idx} logo={`${path}/${value.icon}`} title={value.title} text={value.text} />;
+              })}
+            </div>   
+          </>
+      }
     </StyledMe>
   );
 };

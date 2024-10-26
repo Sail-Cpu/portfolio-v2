@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { firebaseContext } from "../../contexts/firebaseContext";
 import styled from "styled-components";
-import HeroContent from "../../content/Hero";
 //Components
 import Button from "../../components/Button";
 import theme from "../../styles/Theme";
+import useContent from "../../hook/useContent";
 
 const StyledHeroBanner = styled.section`
   width: 100%;
@@ -79,7 +80,9 @@ const StyledHeroBanner = styled.section`
 const Hero = (props) => {
   const [heroTop, setHeroTop] = useState(165);
   const [jobTop, setJobTop] = useState(135);
-  const [content, setContent] = useState(HeroContent.fr);
+
+  const {userData} = useContext(firebaseContext);
+  const content = useContent(userData, props.language, "hero");
 
   useEffect(() => {
     if (props.scroll) {
@@ -91,27 +94,24 @@ const Hero = (props) => {
     }
   }, [props.scroll]);
 
-  useEffect(() => {
-    if (props.language.name === "fr") setContent(HeroContent.fr);
-    if (props.language.name === "en") setContent(HeroContent.en);
-  }, [props.language]);
-
   return (
     <StyledHeroBanner
       ref={props.position}
       scrollHero={heroTop}
       scrollName={jobTop}
     >
-      <div className="hero-content">
-        <h1>{content.name}</h1>
-        <h2>{content.job}</h2>
-        <div className="presentation-container">
-          <p>{content.presentation}</p>
-        </div>
-        <a target="_blank" href={content.buttonLink} rel="noreferrer">
-          <Button label={content.button} />
-        </a>
+      {content &&
+        <div className="hero-content">
+          <h1>{content.name}</h1>
+          <h2>{content.job}</h2>
+          <div className="presentation-container">
+            <p>{content.presentation}</p>
+          </div>
+          <a target="_blank" href={content.buttonLink} rel="noreferrer">
+            <Button label={content.button} />
+          </a>
       </div>
+      }
     </StyledHeroBanner>
   );
 };

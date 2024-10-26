@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/Theme";
-import {
-  Skills as SkillsContent,
-  TechnoSkills,
-  ToolsSkills,
-} from "../../content/Skills";
 import SectionName from "../../components/SectionName";
+import { firebaseContext } from "../../contexts/firebaseContext";
 
 const StyledSkillsContainer = styled.section`
   margin-top: 150px;
@@ -108,9 +104,20 @@ const StyledSkill = styled.div`
   }
 `;
 
+const path = "/uploads/icons"
+
 const Skills = (props) => {
   const [nbWidth, setNbWidth] = useState(0);
   const [nameWidth, setNameWidth] = useState(0);
+  const [name, setName] = useState(null);
+
+  const {userData} = useContext(firebaseContext);
+
+  useEffect(() => {
+    if(userData){
+      setName(userData.nav[props.language.name].link2);
+    }
+  }, [userData])
 
   return (
     <StyledSkillsContainer
@@ -118,53 +125,58 @@ const Skills = (props) => {
       nbWidth={nbWidth}
       nameWidth={nameWidth}
     >
-      <div className="skills-container">
-        <div className="skills-top">
-          <SectionName
-            nb="02"
-            name={SkillsContent.name}
-            setNbWidth={setNbWidth}
-            setNameWidth={setNameWidth}
-          />
-          <div className="skills-bar-vertical">
-            <div className="skills-bar-vertical-1"></div>
-            <div className="skills-bar-vertical-2"></div>
-          </div>
-          <div className="skills-bar-horizontal"></div>
-        </div>
-        <div className="slider-skills">
-          {[...Array(3)].map((_, idx) => {
-            return (
-              <div key={idx} className="slide-skill-to-left">
-                {TechnoSkills.map((skill, idx) => {
+      {
+        userData && name &&
+          <>
+            <div className="skills-container">
+              <div className="skills-top">
+                <SectionName
+                  nb="02"
+                  name={name}
+                  setNbWidth={setNbWidth}
+                  setNameWidth={setNameWidth}
+                />
+                <div className="skills-bar-vertical">
+                  <div className="skills-bar-vertical-1"></div>
+                  <div className="skills-bar-vertical-2"></div>
+                </div>
+                <div className="skills-bar-horizontal"></div>
+              </div>
+              <div className="slider-skills">
+                {[...Array(3)].map((_, idx) => {
                   return (
-                    <StyledSkill key={idx}>
-                      <span>{skill.name.toUpperCase()}</span>
-                      <img src={skill.icon} alt={skill.name + " icon"} />
-                    </StyledSkill>
+                    <div key={idx} className="slide-skill-to-left">
+                      {userData.top_skills.map((skill, idx) => {
+                        return (
+                          <StyledSkill key={idx}>
+                            <span>{skill.name.toUpperCase()}</span>
+                            <img src={`${path}/${skill.icon}`} alt={skill.name + " icon"} />
+                          </StyledSkill>
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </div>
-            );
-          })}
-        </div>
-        <div className="slider-skills">
-          {[...Array(3)].map((_, idx) => {
-            return (
-              <div key={idx} className="slide-skill-to-right">
-                {ToolsSkills.map((skill, idx) => {
+              <div className="slider-skills">
+                {[...Array(3)].map((_, idx) => {
                   return (
-                    <StyledSkill key={idx}>
-                      <span>{skill.name.toUpperCase()}</span>
-                      <img src={skill.icon} alt={skill.name + " icon"} />
-                    </StyledSkill>
+                    <div key={idx} className="slide-skill-to-right">
+                      {userData.bottom_skills.map((skill, idx) => {
+                        return (
+                          <StyledSkill key={idx}>
+                            <span>{skill.name.toUpperCase()}</span>
+                            <img src={`${path}/${skill.icon}`} alt={skill.name + " icon"} />
+                          </StyledSkill>
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </div>
-            );
-          })}
-        </div>
-      </div>
+            </div>
+          </>
+      }
     </StyledSkillsContainer>
   );
 };

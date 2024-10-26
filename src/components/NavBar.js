@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { firebaseContext } from "../contexts/firebaseContext";
+import useContent from "../hook/useContent";
 import styled from "styled-components";
 import theme from "../styles/Theme";
-import NavContent from "../content/Nav";
-//Image
-import Logo from "../assets/img/logo.png";
 
 const StyledNavBarContainer = styled.div`
   z-index: 100;
@@ -81,9 +80,10 @@ const StyledLogo = styled.div`
   }
 `;
 
+const path = "/uploads/img"
+
 const NavBar = (props) => {
   const [navTop, setNavTop] = useState(250);
-  const [links, setLinks] = useState(NavContent.fr)
 
     function scrollToRef(ref) {
       window.scrollTo({ top: ref.current.offsetTop - 180, behavior: "smooth" });
@@ -97,34 +97,35 @@ const NavBar = (props) => {
       }
     }, [props.scroll]);
 
-    useEffect(() => {
-      if (props.language.name === "fr") setLinks(NavContent.fr);
-      if (props.language.name === "en") setLinks(NavContent.en);
-    }, [props.language]);
+    const {userData} = useContext(firebaseContext);
+    const links = useContent(userData, props.language, "nav")
 
   return (
     <StyledNavBarContainer scroll={navTop}>
-      <StyledNavBar toTop={props.toTop}>
-        <ul>
-          <li onClick={() => scrollToRef(props.MeRef)}>
-            <span className="nb">01.</span> <span className="linkname">{links.link1.toUpperCase()}</span>
-          </li>
-          <li onClick={() => scrollToRef(props.SkillsRef)}>
-            <span className="nb">02.</span> <span className="linkname">{links.link2.toUpperCase()}</span>
-          </li>
-        </ul>
-        <StyledLogo>
-          <img src={Logo} alt="Logo" />
-        </StyledLogo>
-        <ul>
-          <li onClick={() => scrollToRef(props.ProjectRef)}>
-            <span className="nb">03.</span> <span className="linkname">{links.link3.toUpperCase()}</span>
-          </li>
-          <li onClick={() => scrollToRef(props.ContactRef)}>
-            <span className="nb">04.</span> <span className="linkname">{links.link4.toUpperCase()}</span>
-          </li>
-        </ul>
-      </StyledNavBar>
+      {
+        links &&
+          <StyledNavBar toTop={props.toTop}>
+            <ul>
+              <li onClick={() => scrollToRef(props.MeRef)}>
+                <span className="nb">01.</span> <span className="linkname">{links.link1.toUpperCase()}</span>
+              </li>
+              <li onClick={() => scrollToRef(props.SkillsRef)}>
+                <span className="nb">02.</span> <span className="linkname">{links.link2.toUpperCase()}</span>
+              </li>
+            </ul>
+            <StyledLogo>
+              <img src={`${path}/logo.png`} alt="Logo" />
+            </StyledLogo>
+            <ul>
+              <li onClick={() => scrollToRef(props.ProjectRef)}>
+                <span className="nb">03.</span> <span className="linkname">{links.link3.toUpperCase()}</span>
+              </li>
+              <li onClick={() => scrollToRef(props.ContactRef)}>
+                <span className="nb">04.</span> <span className="linkname">{links.link4.toUpperCase()}</span>
+              </li>
+            </ul>
+          </StyledNavBar>
+      }
     </StyledNavBarContainer>
   );
 };

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import SectionName from "../../components/SectionName";
 import theme from "../../styles/Theme";
-//Project
-import AllProject, { ProjectName } from "../../content/Project";
 //Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ReactGA from "react-ga4";
+import { firebaseContext } from "../../contexts/firebaseContext";
+import useContent from "../../hook/useContent";
 
 const StyledProject = styled.section`
   position: relative;
@@ -94,6 +93,9 @@ const StyledSlide = styled.div`
     margin-bottom: 10px;
   }
 `;
+
+const path = "/uploads/img"
+
 const StyledProjectContent = styled.div`
   position: relative;
   display: flex;
@@ -111,7 +113,7 @@ const StyledProjectContent = styled.div`
     width: 60%;
     height: 100%;
     max-height: 250px;
-    background-image: url("${(props) => props.active.image}");
+    background-image: url("${(props) => path + "/" + props.active.image}");
     background-size: cover;
     background-position: center;
     .project-image-content {
@@ -256,110 +258,103 @@ const StyledProjectContent = styled.div`
 
 const Project = (props) => {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [name, setName] = useState(ProjectName.fr);
-  const [activeProject, setActiveProject] = useState(AllProject[activeIdx]);
+  const {userData} = useContext(firebaseContext);
+  const content = useContent(userData, null, "projects")
+  const [name, setName] = useState(null);
+  const [activeProject, setActiveProject] = useState(null);
   const [activeProjectDesc, setActiveProjectDesc] = useState("");
-
-  const clickProject = (name) => {
-    ReactGA.event({
-      category: 'project',
-      action: 'Clicked link',
-      item_name: name.toLowerCase(),
-      label: 'miaw project',
-      value: 1
-    });
-  }
-
+ 
   useEffect(() => {
-    setActiveProject(AllProject[activeIdx]);
-    if (props.language.name === "fr")
-      setName(ProjectName.fr)
-      setActiveProjectDesc(activeProject.description.fr);
-    if (props.language.name === "en")
-      setName(ProjectName.en)
-      setActiveProjectDesc(activeProject.description.en);
+    if(userData && content){
+      setActiveProject(content[activeIdx]);
+      setName(userData.nav[props.language.name].link3)
+      setActiveProjectDesc(userData.projects[activeIdx].description[props.language.name]);
+    }
   }, [
     activeIdx,
-    activeProject.description.en,
-    activeProject.description.fr,
     props.language.name,
+    userData
   ]);
 
   return (
     <StyledProject ref={props.position}>
-      <StyledProjectTop>
-        <SectionName nb="03" name={name} />
-        <div className="project-bar-left"></div>
-        <div className="project-bar-right"></div>
-      </StyledProjectTop>
-      <div className="slider-container">
-        <StyledSlider>
-          <div className="slider-little-bar"></div>
-          {AllProject.map((project, idx) => {
-            return (
-              <StyledSlide
-                key={idx}
-                onClick={() => setActiveIdx(idx)}
-                active={activeIdx === idx}
-              >
-                <span>{project.name}</span>
-              </StyledSlide>
-            );
-          })}
-        </StyledSlider>
-        <StyledProjectContent active={activeProject}>
-          <h2>{activeProject.date}</h2>
-          <div className="project-image">
-            <div className="project-image-content">
-              <div className="project-image-title">{activeProject.name}</div>
-              <div className="project-image-description">
-                {activeProjectDesc}
-              </div>
-              <div className="project-image-techno">
-                {activeProject.techno &&
-                  activeProject.techno.map((project, idx) => {
-                    return <span key={idx}>{project}</span>;
-                  })}
-              </div>
-              <div className="project-image-git">
-                <a target="_blank" href={activeProject.git} rel="noreferrer">
-                  <GitHubIcon />
-                </a>
-                {activeProject?.link &&
-                    <a target="_blank" href={activeProject?.link} rel="noreferrer">
-                      <span>Le Site</span>
-                    </a>
-                }
-              </div>
-            </div>
-          </div>
-          <div className="project-content">
-            <div className="project-title">
-              <h1>{activeProject.name}</h1>
-            </div>
-            <div className="project-description">
-              {activeProjectDesc}
-            </div>
-            <div className="techno">
-              {activeProject.techno &&
-                activeProject.techno.map((project, idx) => {
-                  return <span key={idx}>{project}</span>;
+      {
+        content && name && activeProject &&
+          <>
+            <StyledProjectTop>
+              <SectionName nb="03" name={name} />
+              <div className="project-bar-left"></div>
+              <div className="project-bar-right"></div>
+            </StyledProjectTop>
+            <div className="slider-container">
+              <StyledSlider>
+                <div className="slider-little-bar"></div>
+                {content.map((project, idx) => {
+                  return (
+                    <StyledSlide
+                      key={idx}
+                      onClick={() => setActiveIdx(idx)}
+                      active={activeIdx === idx}
+                    >
+                      <span>{project.name}</span>
+                    </StyledSlide>
+                  );
                 })}
+              </StyledSlider>
+              <StyledProjectContent active={activeProject}>
+                <h2>{activeProject.date}</h2>
+                <div className="project-image">
+                  <div className="project-image-content">
+                    <div className="project-image-title">{activeProject.name}</div>
+                    <div className="project-image-description">
+                      {activeProjectDesc}
+                    </div>
+                    <div className="project-image-techno">
+                      {activeProject.techno &&
+                        activeProject.techno.map((project, idx) => {
+                          return <span key={idx}>{project}</span>;
+                        })}
+                    </div>
+                    <div className="project-image-git">
+                      <a target="_blank" href={activeProject.git} rel="noreferrer">
+                        <GitHubIcon />
+                      </a>
+                      {activeProject?.link &&
+                          <a target="_blank" href={activeProject?.link} rel="noreferrer">
+                            <span>Le Site</span>
+                          </a>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div className="project-content">
+                  <div className="project-title">
+                    <h1>{activeProject.name}</h1>
+                  </div>
+                  <div className="project-description">
+                    {activeProjectDesc}
+                  </div>
+                  <div className="techno">
+                    {activeProject.techno &&
+                      activeProject.techno.map((project, idx) => {
+                        return <span key={idx}>{project}</span>;
+                      })}
+                  </div>
+                  <div className="git">
+                    <a target="_blank" href={activeProject.git} rel="noreferrer">
+                      <GitHubIcon />
+                    </a>
+                    {activeProject?.link &&
+                        <a target="_blank" href={activeProject?.link} rel="noreferrer">
+                          <span>Le Site</span>
+                        </a>
+                    }
+                  </div>
+                </div>
+              </StyledProjectContent>
             </div>
-            <div className="git">
-              <a target="_blank" href={activeProject.git} rel="noreferrer">
-                <GitHubIcon />
-              </a>
-              {activeProject?.link &&
-                  <a target="_blank" onClick={() => clickProject(activeProject.name)} href={activeProject?.link} rel="noreferrer">
-                    <span>Le Site</span>
-                  </a>
-              }
-
-            </div>
-          </div>
-        </StyledProjectContent>
-      </div>
+          </>
+      }
     </StyledProject>
   );
 };

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
-import NavContent from "../content/Nav";
+import useContent from "../hook/useContent";
+import { firebaseContext } from "../contexts/firebaseContext";
 
 const StyledMobileNav = styled.nav`
   z-index: 99;
@@ -64,40 +65,43 @@ const StyledNavLink = styled.li`
 `;
 
 const MobileNav = (props) => {
-  const [links, setLinks] = useState(NavContent.fr);
 
   function scrollToRef(ref) {
     window.scrollTo({ top: ref.current.offsetTop - 130, behavior: "smooth" });
   }
 
-  useEffect(() => {
-    if (props.language.name === "fr") setLinks(NavContent.fr);
-    if (props.language.name === "en") setLinks(NavContent.en);
-  }, [props.language]);
+  const {userData} = useContext(firebaseContext);
+  const links = useContent(userData, props.language, "nav")
 
   return (
     <StyledMobileNav active={props.openMobileNav}>
-      <ul className="link-list">
-        <StyledNavLink onClick={() => scrollToRef(props.MeRef)}>
-          <h2>01.</h2>
-          <h1>{links.link1.toUpperCase()}</h1>
-        </StyledNavLink>
-        <StyledNavLink onClick={() => scrollToRef(props.SkillsRef)}>
-          <h2>02.</h2>
-          <h1>{links.link2.toUpperCase()}</h1>
-        </StyledNavLink>
-        <StyledNavLink onClick={() => scrollToRef(props.ProjectRef)}>
-          <h2>03.</h2>
-          <h1>{links.link3.toUpperCase()}</h1>
-        </StyledNavLink>
-        <StyledNavLink onClick={() => scrollToRef(props.ContactRef)}>
-          <h2>04.</h2>
-          <h1>{links.link4.toUpperCase()}</h1>
-        </StyledNavLink>
-      </ul>
-      <ul className="pseudo-container">
-        <h1 onClick={() => scrollToRef(props.HeroRef)}>SAIL</h1>
-      </ul>
+      {
+        links && 
+          <ul className="link-list">
+            <StyledNavLink onClick={() => scrollToRef(props.MeRef)}>
+              <h2>01.</h2>
+              <h1>{links.link1.toUpperCase()}</h1>
+            </StyledNavLink>
+            <StyledNavLink onClick={() => scrollToRef(props.SkillsRef)}>
+              <h2>02.</h2>
+              <h1>{links.link2.toUpperCase()}</h1>
+            </StyledNavLink>
+            <StyledNavLink onClick={() => scrollToRef(props.ProjectRef)}>
+              <h2>03.</h2>
+              <h1>{links.link3.toUpperCase()}</h1>
+            </StyledNavLink>
+            <StyledNavLink onClick={() => scrollToRef(props.ContactRef)}>
+              <h2>04.</h2>
+              <h1>{links.link4.toUpperCase()}</h1>
+            </StyledNavLink>
+          </ul>
+      }
+      {
+        userData && 
+          <ul className="pseudo-container">
+            <h1 onClick={() => scrollToRef(props.HeroRef)}>{userData.pseudo}</h1>
+          </ul>
+      }
     </StyledMobileNav>
   );
 };

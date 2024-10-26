@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+
 import styled from "styled-components";
 import theme from "../../styles/Theme";
-import ContactContent from "../../content/Contact";
 //Components
 import SectionName from "../../components/SectionName";
 import Button from "../../components/Button";
 //Icon
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { firebaseContext } from "../../contexts/firebaseContext";
+import useContent from "../../hook/useContent";
+import allIcons from "../../lib/allIcons";
 
 const StyledContact = styled.section`
   margin: 150px 0;
@@ -46,35 +47,50 @@ const StyledContact = styled.section`
 `;
 
 const Contact = (props) => {
-  const [content, setContent] = useState(ContactContent.fr);
 
-  useEffect(() => {
-    if (props.language.name === "fr") setContent(ContactContent.fr);
-    if (props.language.name === "en") setContent(ContactContent.en);
-  }, [props.language]);
+  const {userData} = useContext(firebaseContext);
+  const content = useContent(userData, props.language, "contact");
+
+  function selectIcon(appName){
+    let icon;
+    for(let i = 0; i <  allIcons.length; i++){
+      if(allIcons[i].name.toLowerCase() === appName.toLowerCase()){
+        icon = allIcons[i].icon;
+      }
+    }
+    return icon;
+  }
 
   return (
     <StyledContact ref={props.position}>
-      <SectionName nb="04" name={content.name} />
-      <div className="bar"></div>
-      <div className="text">
-        <p>{content.text}</p>
-      </div>
-      <a href={content.mail}>
-        <Button label={MailOutlineIcon} />
-      </a>
-      <div className="social">
-        <a target="_blank" href="https://github.com/Sail-Cpu" rel="noreferrer">
-          <GitHubIcon />
-        </a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/sofiane-lasoa-506678234/"
-          rel="noreferrer"
-        >
-          <LinkedInIcon />
-        </a>
-      </div>
+      {
+        content &&
+          <>
+            <SectionName nb="04" name={content.name} />
+            <div className="bar"></div>
+            <div className="text">
+              <p>{content.text}</p>
+            </div>
+            <a href={`mailto:${userData.contact.mail}`}>
+              <Button label={MailOutlineIcon} />
+            </a>
+            <div className="social">
+              {
+                userData.contact.app.map((app, idx) => {
+                  return(
+                    <a 
+                    key={idx}
+                    target="_blank" 
+                    href={app.link}
+                    rel="noreferrer">
+                    {selectIcon(app.name)}
+                  </a>
+                  )
+                })
+              }
+            </div>
+          </>
+      }
     </StyledContact>
   );
 };

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import theme from "../styles/Theme";
-//Icons
-import MailIcon from "@mui/icons-material/Mail";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import allIcons from "../lib/allIcons";
+import EmailIcon from '@mui/icons-material/Email';
+import { firebaseContext } from "../contexts/firebaseContext";
 
 const StyledSocialMedia = styled.div`
   z-index: 99;
@@ -45,21 +44,33 @@ const StyledSocialMedia = styled.div`
 `;
 
 const SocialMedia = () => {
+
+  const {userData} = useContext(firebaseContext);
+
+  function selectIcon(appName){
+    let icon;
+    for(let i = 0; i <  allIcons.length; i++){
+      if(allIcons[i].name.toLowerCase()  == appName.toLowerCase() ){
+        icon = allIcons[i].icon;
+      }
+    }
+    return icon;
+  }
+  
   return (
     <StyledSocialMedia>
-        <a href="mailto:sofiane.lasoa1@hotmail.com">
-            <MailIcon />
-        </a>
-      <a target="_blank" href="https://github.com/Sail-Cpu" rel="noreferrer">
-        <GitHubIcon />
+      <a href={`mailto:${userData.contact.mail}`}>
+        <EmailIcon />
       </a>
-      <a
-        target="_blank"
-        href="https://www.linkedin.com/in/sofiane-lasoa-506678234/"
-        rel="noreferrer"
-      >
-        <LinkedInIcon />
-      </a>
+      {
+        userData.contact.app.map((app, idx) => {
+          return(
+            <a key={idx} target="_blank" href={app.link} rel="noreferrer">
+              {selectIcon(app.name)}
+            </a>
+          )
+        })
+      }
       <div className="form"></div>
     </StyledSocialMedia>
   );

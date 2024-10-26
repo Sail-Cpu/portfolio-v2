@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import theme from "../styles/Theme";
-import AllLanguage from "../content/Language";
+import { firebaseContext } from "../contexts/firebaseContext";
 
 const StyledLanguage = styled.div`
   position: absolute;
@@ -46,6 +46,8 @@ const StyledLanguage = styled.div`
   }
 `;
 
+const path = "/uploads/flags"
+
 const Language = (props) => {
   const [toggle, setToggle] = useState(false);
 
@@ -54,28 +56,29 @@ const Language = (props) => {
     setToggle(false);
   }
 
+  const {userData} = useContext(firebaseContext);
+
   return (
     <StyledLanguage>
       <div className="active-language">
-        <img alt="lang" className="active-flag" src={props.language.flag} />
+        <img alt="lang" className="active-flag" src={`${path}/${props.language.flag}`} />
         <ExpandMoreIcon onClick={() => setToggle(!toggle)} />
       </div>
       {toggle && (
         <>
-          {AllLanguage.map((lang, idx) => {
+          {userData?.language.map((lang, idx) => {
             return (
-              <>
+              <React.Fragment key={idx}>
                 {lang.name !== props.language.name && (
                   <div
                     onClick={() => handleClick(lang)}
-                    key={idx}
                     className="other-language"
                   >
                     <div className="bars"></div>
-                    <img alt="lang" className="active-flag" src={lang.flag} />
+                    <img alt="lang" className="active-flag" src={`${path}/${lang.flag}`} />
                   </div>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </>

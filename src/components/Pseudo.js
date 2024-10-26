@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
+import { firebaseContext } from "../contexts/firebaseContext";
 import styled from "styled-components";
 import theme from "../styles/Theme";
-import MyPseudo from "../content/Pseudo";
 
 const StyledPseudo = styled.div`
   position: fixed;
@@ -27,17 +27,11 @@ const Pseudo = (props) => {
     window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
   }
 
-  function getPseudo(){
-    let myPseudo = "";
-    let tab = MyPseudo.name.split(' ');
-    for(let i = 0; i < tab.length; i++){
-      myPseudo += tab[i][0].toUpperCase();
-    }
-    return myPseudo;
-  }
+  const {userData} = useContext(firebaseContext);
+
   return (
     <StyledPseudo onClick={() => scrollToRef(props.HeroRef)}>
-      {getPseudo()}
+      {userData?.pseudo}
     </StyledPseudo>
   );
 };
