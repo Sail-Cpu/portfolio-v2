@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
@@ -24,7 +24,7 @@ const Main = styled.main`
 `;
 
 function App() {
-
+  
   return (
     <AppContainer>
       <FirebaseContextProvider>
