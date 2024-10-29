@@ -61,8 +61,10 @@ const Home = () => {
   const {language, setLanguage} = useContext(themeContext);
 
   useEffect(() => {
-    setLanguage(userData?.language[0]);
-  }, [userData])
+    if (userData && !language) {
+        setLanguage(userData.language[0]);
+    }
+}, [userData, language]);
 
   console.log("ok")
 
