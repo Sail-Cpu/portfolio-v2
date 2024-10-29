@@ -30,28 +30,25 @@ const HomeContainer = styled.div`
 const Home = () => {
   const [scroll, setScroll] = useState(false);
   const [toTop, setToTop] = useState(true);
-  const [y, setY] = useState(0);
+  const yRef = useRef(0);
 
-  const {userData} = useContext(firebaseContext)
+  const { userData } = useContext(firebaseContext);
 
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.scrollY;
-      if (window.scrollY > y) {
-        setToTop(false);
-      } else {
-        setToTop(true);
-      }
-      setY(scrollTop);
-      if (window.scrollY > 0) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
+
+      setToTop(scrollTop < yRef.current);
+
+      yRef.current = scrollTop;
+
+      setScroll(scrollTop > 0);
     }
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [y]);
+  }, []);
+
 
   const HeroRef = useRef(null);
   const MeRef = useRef(null);
@@ -65,6 +62,8 @@ const Home = () => {
   useEffect(() => {
     setLanguage(userData?.language[0]);
   }, [userData])
+
+  console.log("ok")
 
   return (
     <>
