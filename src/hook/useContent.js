@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { themeContext } from "../contexts/themeContext";
 
-const useContent = (userData, language, section) => {
+const useContent = (userData, section, noLang) => {
 
+    const {language} = useContext(themeContext);
     const [content, setContent] = useState(null);
+    
 
     useEffect(() => {
         if(userData && language && section){
-            setContent(userData[section][language.name]);
-        }else if(userData && !language && section){
-            setContent(userData[section])
+            if(!noLang){
+                setContent(userData[section][language.name]);
+            }else if(noLang){
+                setContent(userData[section])
+            }
         }
     }, [userData, language])
 

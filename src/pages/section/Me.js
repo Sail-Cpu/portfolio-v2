@@ -123,8 +123,8 @@ const Me = (props) => {
 
   const {userData} = useContext(firebaseContext);
 
-  const content = useContent(userData, props.language, "me")
-  const values = useContent(userData, props.language, "values")
+  const content = useContent(userData, "me")
+  const values = useContent(userData, "values")
 
   return (
     <StyledMe ref={props.position}>

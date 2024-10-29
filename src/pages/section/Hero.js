@@ -82,7 +82,7 @@ const Hero = (props) => {
   const [jobTop, setJobTop] = useState(135);
 
   const {userData} = useContext(firebaseContext);
-  const content = useContent(userData, props.language, "hero");
+  const content = useContent(userData, "hero");
 
   useEffect(() => {
     if (props.scroll) {

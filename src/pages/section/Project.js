@@ -6,6 +6,7 @@ import theme from "../../styles/Theme";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { firebaseContext } from "../../contexts/firebaseContext";
 import useContent from "../../hook/useContent";
+import { themeContext } from "../../contexts/themeContext";
 
 const StyledProject = styled.section`
   position: relative;
@@ -259,7 +260,8 @@ const StyledProjectContent = styled.div`
 const Project = (props) => {
   const [activeIdx, setActiveIdx] = useState(0);
   const {userData} = useContext(firebaseContext);
-  const content = useContent(userData, null, "projects")
+  const {language} = useContext(themeContext);
+  const content = useContent(userData, "projects",  true)
   const [name, setName] = useState(null);
   const [activeProject, setActiveProject] = useState(null);
   const [activeProjectDesc, setActiveProjectDesc] = useState("");
@@ -267,12 +269,12 @@ const Project = (props) => {
   useEffect(() => {
     if(userData && content){
       setActiveProject(content[activeIdx]);
-      setName(userData.nav[props.language.name].link3)
-      setActiveProjectDesc(userData.projects[activeIdx].description[props.language.name]);
+      setName(userData.nav[language.name].link3)
+      setActiveProjectDesc(userData.projects[activeIdx].description[language.name]);
     }
   }, [
     activeIdx,
-    props.language.name,
+    language.name,
     userData
   ]);
 

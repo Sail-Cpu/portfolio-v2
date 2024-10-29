@@ -3,6 +3,7 @@ import styled from "styled-components";
 import theme from "../../styles/Theme";
 import SectionName from "../../components/SectionName";
 import { firebaseContext } from "../../contexts/firebaseContext";
+import { themeContext } from "../../contexts/themeContext";
 
 const StyledSkillsContainer = styled.section`
   margin-top: 150px;
@@ -112,10 +113,11 @@ const Skills = (props) => {
   const [name, setName] = useState(null);
 
   const {userData} = useContext(firebaseContext);
+  const {language} = useContext(themeContext)
 
   useEffect(() => {
     if(userData){
-      setName(userData.nav[props.language.name].link2);
+      setName(userData.nav[language.name].link2);
     }
   }, [userData])
 

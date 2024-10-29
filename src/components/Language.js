@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import theme from "../styles/Theme";
 import { firebaseContext } from "../contexts/firebaseContext";
+import { themeContext } from "../contexts/themeContext";
 
 const StyledLanguage = styled.div`
   position: absolute;
@@ -51,8 +52,10 @@ const path = "/uploads/flags"
 const Language = (props) => {
   const [toggle, setToggle] = useState(false);
 
+  const {language, setLanguage} = useContext(themeContext);
+
   function handleClick(lang) {
-    props.setLanguage(lang);
+    setLanguage(lang);
     setToggle(false);
   }
 
@@ -61,7 +64,7 @@ const Language = (props) => {
   return (
     <StyledLanguage>
       <div className="active-language">
-        <img alt="lang" className="active-flag" src={`${path}/${props.language.flag}`} />
+        <img alt="lang" className="active-flag" src={`${path}/${language.flag}`} />
         <ExpandMoreIcon onClick={() => setToggle(!toggle)} />
       </div>
       {toggle && (
@@ -69,7 +72,7 @@ const Language = (props) => {
           {userData?.language.map((lang, idx) => {
             return (
               <React.Fragment key={idx}>
-                {lang.name !== props.language.name && (
+                {lang.name !== language.name && (
                   <div
                     onClick={() => handleClick(lang)}
                     className="other-language"

@@ -98,7 +98,7 @@ const NavBar = (props) => {
     }, [props.scroll]);
 
     const {userData} = useContext(firebaseContext);
-    const links = useContent(userData, props.language, "nav")
+    const links = useContent(userData, "nav")
 
   return (
     <StyledNavBarContainer scroll={navTop}>

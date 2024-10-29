@@ -49,7 +49,7 @@ const StyledContact = styled.section`
 const Contact = (props) => {
 
   const {userData} = useContext(firebaseContext);
-  const content = useContent(userData, props.language, "contact");
+  const content = useContent(userData, "contact");
 
   function selectIcon(appName){
     let icon;

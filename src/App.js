@@ -3,6 +3,7 @@ import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
 import FirebaseContextProvider from "./contexts/firebaseContext";
+import ThemeContextProvider from "./contexts/themeContext";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -28,10 +29,12 @@ function App() {
   return (
     <AppContainer>
       <FirebaseContextProvider>
-        <GlobalStyle />
-        <Main>
-          <Home />
-        </Main>
+        <ThemeContextProvider>
+          <GlobalStyle />
+          <Main>
+            <Home />
+          </Main>
+        </ThemeContextProvider>
       </FirebaseContextProvider>
     </AppContainer>
   );

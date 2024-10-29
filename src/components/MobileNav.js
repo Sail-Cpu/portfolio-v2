@@ -71,7 +71,7 @@ const MobileNav = (props) => {
   }
 
   const {userData} = useContext(firebaseContext);
-  const links = useContent(userData, props.language, "nav")
+  const links = useContent(userData, "nav")
 
   return (
     <StyledMobileNav active={props.openMobileNav}>
