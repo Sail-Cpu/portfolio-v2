@@ -275,7 +275,7 @@ const Project = (props) => {
   }, [
     activeIdx,
     language.name,
-    userData
+    content
   ]);
 
   return (

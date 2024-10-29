@@ -66,8 +66,6 @@ const Home = () => {
     }
 }, [userData, language]);
 
-  console.log("ok")
-
   return (
     <>
       {
