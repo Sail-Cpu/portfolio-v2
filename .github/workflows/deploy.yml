@@ -37,8 +37,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker pull $DOCKER_USERNAME/react-app:latest
-            docker stop react_app || true
-            docker rm react_app || true
-            docker run -d --name react_app -p 80:80 $DOCKER_USERNAME/react-app:latest
+            docker pull $DOCKER_USERNAME/portfolio-v2:latest
+            docker stop portfolio || true
+            docker rm portfolio || true
+            docker run -d --name portfolio -p 8080:80 $DOCKER_USERNAME/portfolio-v2:latest
           EOF
