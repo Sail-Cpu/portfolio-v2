@@ -34,9 +34,6 @@ jobs:
     needs: build-image  # Ajoutez cette ligne pour créer une dépendance
     steps:
       - name: Deploy using ssh
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
