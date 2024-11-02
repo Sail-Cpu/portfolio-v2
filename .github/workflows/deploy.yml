@@ -31,6 +31,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build-image  # Ajoutez cette ligne pour créer une dépendance
     steps:
       - name: Deploy using ssh
         env:
@@ -43,20 +44,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            # Vérification que les variables sont bien définies
-            echo "DOCKER_USERNAME: $DOCKER_USERNAME"
-            echo "DOCKER_PASSWORD: $DOCKER_PASSWORD"
+            if [[ -z "$DOCKER_USERNAME" || -z "$DOCKER_PASSWORD" ]]; then
+              echo "Les variables d'environnement DOCKER_USERNAME et DOCKER_PASSWORD ne sont pas définies."
+              exit 1
+            fi
             
-            # Login à Docker sans interaction utilisateur
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             
-            # Pull de l'image la plus récente
             docker pull "$DOCKER_USERNAME/portfolio-v2:latest"
-            
-            # Arrêt et suppression du conteneur existant si présent
             docker stop portfolio || true
             docker rm portfolio || true
-            
-            # Lancer le conteneur avec un tag spécifique
             docker run -d --name portfolio -p 8080:80 "$DOCKER_USERNAME/portfolio-v2:latest"
-
