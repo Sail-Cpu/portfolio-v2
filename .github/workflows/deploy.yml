@@ -46,4 +46,4 @@ jobs:
             docker pull "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
             docker stop portfolio || true
             docker rm portfolio || true
-            docker run -d --name portfolio -p 8080:80 "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
+            docker run -d --name portfolio -p 8080:80 --env-file /var/www/portfolio-v2/.env "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
