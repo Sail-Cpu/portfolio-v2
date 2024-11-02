@@ -28,13 +28,14 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest
+
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy using ssh
         env:
-            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -42,8 +43,20 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker pull $DOCKER_USERNAME/portfolio-v2:latest
+            # Vérification que les variables sont bien définies
+            echo "DOCKER_USERNAME: $DOCKER_USERNAME"
+            echo "DOCKER_PASSWORD: $DOCKER_PASSWORD"
+            
+            # Login à Docker sans interaction utilisateur
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            
+            # Pull de l'image la plus récente
+            docker pull "$DOCKER_USERNAME/portfolio-v2:latest"
+            
+            # Arrêt et suppression du conteneur existant si présent
             docker stop portfolio || true
             docker rm portfolio || true
-            docker run -d --name portfolio -p 8080:80 $DOCKER_USERNAME/portfolio-v2:latest
+            
+            # Lancer le conteneur avec un tag spécifique
+            docker run -d --name portfolio -p 8080:80 "$DOCKER_USERNAME/portfolio-v2:latest"
+
