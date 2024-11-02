@@ -39,28 +39,26 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          script: |
+            # Connexion à Docker Hub
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            
+            # Pull de l'image Docker
+            docker pull "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
   
-      - name: Docker Login
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            # Arrêter et supprimer l'ancien conteneur
+            docker stop portfolio || true
+            docker rm portfolio || true
   
-      - name: Pull Docker Image
-        run: docker pull "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
+            # Création du fichier .env
+            echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" > .env
+            echo "REACT_APP_AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
+            echo "REACT_APP_DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+            echo "REACT_APP_PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
+            echo "REACT_APP_STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> .env
+            echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
+            echo "REACT_APP_APP_ID=${{ secrets.APP_ID }}" >> .env
+            echo "REACT_APP_MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
   
-      - name: Stop and Remove Old Container
-        run: |
-          docker stop portfolio || true
-          docker rm portfolio || true
-  
-      - name: Create .env File
-        run: |
-          echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" > .env
-          echo "REACT_APP_AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
-          echo "REACT_APP_DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
-          echo "REACT_APP_PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
-          echo "REACT_APP_STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" > .env
-          echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
-          echo "REACT_APP_APP_ID=${{ secrets.APP_ID }}" > .env
-          echo "REACT_APP_MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
-  
-      - name: Run Docker Container
-        run: docker run -d --name portfolio -p 8080:80 --env-file .env "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
+            # Démarrage du nouveau conteneur
+            docker run -d --name portfolio -p 8080:80 --env-file .env "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
