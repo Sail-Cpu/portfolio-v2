@@ -41,11 +41,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            script: |
-            export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
-            export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            docker pull "$DOCKER_USERNAME/portfolio-v2:latest"
+            # Utilisation des secrets directement dans le script
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            docker pull "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
             docker stop portfolio || true
             docker rm portfolio || true
-            docker run -d --name portfolio -p 8080:80 "$DOCKER_USERNAME/portfolio-v2:latest"
+            docker run -d --name portfolio -p 8080:80 "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
