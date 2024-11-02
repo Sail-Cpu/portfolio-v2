@@ -44,10 +44,6 @@ jobs:
             script: |
             export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
             export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
-            if [[ -z "$DOCKER_USERNAME" || -z "$DOCKER_PASSWORD" ]]; then
-              echo "Les variables d'environnement DOCKER_USERNAME et DOCKER_PASSWORD ne sont pas définies."
-              exit 1
-            fi
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             docker pull "$DOCKER_USERNAME/portfolio-v2:latest"
             docker stop portfolio || true
