@@ -21,6 +21,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           
+      - name: Create .env file from secrets
+        run: |
+          echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
+          echo "REACT_APP_AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
+          echo "REACT_APP_DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+          echo "REACT_APP_PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
+          echo "REACT_APP_STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> .env
+          echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
+          echo "REACT_APP_APP_ID=${{ secrets.APP_ID }}" >> .env
+          echo "REACT_APP_MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
+
       - name: Build and Push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -28,6 +39,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest
+          build-args: |
+            REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}
+            REACT_APP_AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}
+            REACT_APP_DATABASE_URL=${{ secrets.DATABASE_URL }}
+            REACT_APP_PROJECT_ID=${{ secrets.PROJECT_ID }}
+            REACT_APP_STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}
+            REACT_APP_MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}
+            REACT_APP_APP_ID=${{ secrets.APP_ID }}
+            REACT_APP_MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}
   deploy:
     runs-on: ubuntu-latest
     needs: build-image
@@ -40,24 +60,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            # Connexion à Docker Hub
             echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             
-            # Pull de l'image Docker
             docker pull "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
-            # Arrêter et supprimer l'ancien conteneur
+            
             docker stop portfolio || true
             docker rm portfolio || true
 
-            # Création du fichier .env
-            echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" > .env
-            echo "REACT_APP_AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
-            echo "REACT_APP_DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
-            echo "REACT_APP_PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
-            echo "REACT_APP_STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> .env
-            echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
-            echo "REACT_APP_APP_ID=${{ secrets.APP_ID }}" >> .env
-            echo "REACT_APP_MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
-
-            # Démarrage du nouveau conteneur
             docker run -d --name portfolio -p 8080:80 --env-file .env "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
