@@ -5,8 +5,6 @@ import { ref, get } from 'firebase/database';
 export const firebaseContext = createContext();
 
 const FirebaseContextProvider = ({ children }) => {
-  console.log(process.env.REACT_APP_DATABASE_URL);
-  
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
