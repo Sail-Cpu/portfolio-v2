@@ -25,8 +25,6 @@ const Main = styled.main`
 `;
 
 function App() {
-
-  console.log("test du deploiement");
   
   return (
     <AppContainer>
