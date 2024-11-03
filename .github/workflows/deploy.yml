@@ -67,4 +67,4 @@ jobs:
             docker stop portfolio || true
             docker rm portfolio || true
 
-            docker run -d --name portfolio -p 8080:80 --env-file .env "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
+            docker run -d --name portfolio -p 8080:80 -v /var/www/portfolio-v2/public/uploads:/usr/share/nginx/html/uploads "${{ secrets.DOCKER_USERNAME }}/portfolio-v2:latest"
