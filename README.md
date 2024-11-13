@@ -9,7 +9,7 @@
   <p align="center" style="font-size: 18px">
     An awesome portfolio
     <br />
-    <a href="http://portfolio.sofianelasoa.fr/">View Demo</a>
+    <a href="https://sofianelasoa.com/">View Demo</a>
   </p>
 </div>
 
