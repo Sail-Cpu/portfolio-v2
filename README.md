@@ -94,3 +94,5 @@ To personalize the portfolio, open all the contents files and replace all my inf
 [Sass-url]: https://sass-lang.com/
 [Javascript]: https://img.shields.io/badge/Javascript-563D7C?style=for-the-badge&logo=javascript
 [Javascript-url]: https://developer.mozilla.org/fr/docs/Web/JavaScript
+
+#### Sofiane Lasoa
