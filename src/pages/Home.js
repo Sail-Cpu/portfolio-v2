@@ -14,6 +14,7 @@ import NavIcon from "../components/NavIcon";
 import MobileNav from "../components/MobileNav";
 import Language from "../components/Language";
 import { themeContext } from "../contexts/themeContext";
+import Experience from "./section/Experience";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -52,6 +53,7 @@ const Home = () => {
 
 
   const HeroRef = useRef(null);
+  const ExperienceRef = useRef(null);
   const MeRef = useRef(null);
   const SkillsRef = useRef(null);
   const ProjectRef = useRef(null);
@@ -82,7 +84,7 @@ const Home = () => {
                 MeRef={MeRef}
                 SkillsRef={SkillsRef}
                 ProjectRef={ProjectRef}
-                ContactRef={ContactRef}
+                ExperienceRef={ExperienceRef}
                 HeroRef={HeroRef}
               />
               <NavBar
@@ -91,7 +93,7 @@ const Home = () => {
                 MeRef={MeRef}
                 SkillsRef={SkillsRef}
                 ProjectRef={ProjectRef}
-                ContactRef={ContactRef}
+                ExperienceRef={ExperienceRef}
               />
               <Language/>
               <SocialMedia />
@@ -100,6 +102,7 @@ const Home = () => {
               <Me position={MeRef} />
               <Skills userData={userData} position={SkillsRef} />
               <Project position={ProjectRef} />
+              <Experience position={ExperienceRef} />
               <Contact position={ContactRef}/>
             </>
           </HomeContainer>

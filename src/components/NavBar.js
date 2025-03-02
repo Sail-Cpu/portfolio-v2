@@ -120,7 +120,7 @@ const NavBar = (props) => {
               <li onClick={() => scrollToRef(props.ProjectRef)}>
                 <span className="nb">03.</span> <span className="linkname">{links.link3.toUpperCase()}</span>
               </li>
-              <li onClick={() => scrollToRef(props.ContactRef)}>
+              <li onClick={() => scrollToRef(props.ExperienceRef)}>
                 <span className="nb">04.</span> <span className="linkname">{links.link4.toUpperCase()}</span>
               </li>
             </ul>

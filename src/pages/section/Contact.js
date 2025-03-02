@@ -66,7 +66,7 @@ const Contact = (props) => {
       {
         content &&
           <>
-            <SectionName nb="04" name={content.name} />
+            <SectionName nb="05" name={content.name} />
             <div className="bar"></div>
             <div className="text">
               <p>{content.text}</p>
