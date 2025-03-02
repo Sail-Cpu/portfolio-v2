@@ -7,7 +7,7 @@ import { firebaseContext } from "../../contexts/firebaseContext";
 import useContent from "../../hook/useContent";
 import SectionName from "../../components/SectionName";
 
-const path = "/uploads/img";
+const path = "/uploads/img"
 
 const StyledXP = styled.section`
   margin: 150px 0;
@@ -43,11 +43,11 @@ const Experience = (props) => {
       {
         content && 
             <div style={{position: "relative", display: "flex", flexDirection: "column"}} className="container">
-                <div className="logo" style={{backgroundImage: `${path}/cnrs.png`, backgroundColor: "grey"}} />
+                <img src={`${path}/cnrs.png`} className="logo" />
                 <span style={{fontSize: "20px"}}>{content.name}</span>
                 <span style={{fontSize: "15px"}}>{content.date}</span>
-                <div style={{marginTop: "10px",width: "300px", height: "160px", backgroundImage: `${path}/cnrs.jpg`, backgroundColor: "grey"}} />
-                <span style={{marginTop: "10px", fontFamily: "Arial", fontSize: "20px"}}>Stagiaire développeur web</span>
+                <img src={`${path}/cnrs.jpg`} style={{marginTop: "10px",width: "300px", height: "150px"}} />
+                <span style={{marginTop: "10px", fontFamily: "Arial", fontSize: "20px"}}>{content.title}</span>
                 <p style={{fontFamily: "Arial", marginTop: "10px"}}>{content.desc}</p>
             </div>
       }
